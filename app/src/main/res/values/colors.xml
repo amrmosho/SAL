@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="textColorPrimary">#2A2727</color>
+
     <color name="colorPrimary">#03adc7</color>
     <color name="colorPrimaryDark">#036c94</color>
     <color name="navigationBarColor">#03adc7</color>
-
-
-
-
     <color name="colorAccent">#FF4081</color>
+    <color name="yallowButton">#FEBB50</color>
+
+    <color name="yallowButtonColor">#C43D4A</color>
+
 </resources>

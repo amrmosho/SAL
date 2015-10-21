@@ -24,10 +24,17 @@ package com.pcland15.ismail.sal.libs;
  * Created by empcl_000 on 19/10/2015.
  */
 public class dbOperations {
-
+    public  String table="";
     public  String type="";
 
+    public HashMap<String ,String >addData;
 
+public dbOperations(String table, String type){
+
+this.table=table;
+    this.type=type;
+
+}
     public String commit(){
 
         String r="";
@@ -35,7 +42,7 @@ public class dbOperations {
             case "get_row":
                 ArrayList<String>  r22=   getFromserver("set="+type+"&table=studentes");
                 break;
-            case "getData":
+            case "get_data":
                 break;
             case "insert":
                 break;

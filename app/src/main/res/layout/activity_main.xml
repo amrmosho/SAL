@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+
+    android:theme="@style/signtheme"
+
+    >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal|bottom"
+        android:src="@drawable/home_img" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="144dp"
+
+
+        android:id="@+id/randomViewInMainLayout"
+        android:layout_gravity="center_horizontal|bottom">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="برنامج تعليم لغه الاشارة "
+            android:id="@+id/textView"
+            style="@style/hometTitle"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageButton
+
+
+                android:id="@+id/button2"
+                android:layout_gravity="center_horizontal"
+                style="@style/homeBT"
+                android:src="@drawable/home_about_bt" />
+
+
+            <ImageButton
+                android:src="@drawable/home_newacount_bt"
+                android:id="@+id/button3"
+                android:layout_gravity="right"
+                style="@style/homeBT"/>
+
+            <ImageButton
+                android:src="@drawable/home_login_bt"
+                android:id="@+id/button"
+                style="@style/homeBT" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".sign_item" >
         </activity>
+        <activity android:name=".sign_items_list" >
+        </activity>
     </application>
 
 </manifest>

@@ -32,7 +32,15 @@ public class cat_list {
     private  String title="";
     private  String des="";
     private  String image="";
+    private String id="";
 
+    public String getID() {
+        return id;
+    }
+
+    public void setID(String id) {
+        this.id = id;
+    }
 
 
 }

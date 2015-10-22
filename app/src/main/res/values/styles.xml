@@ -110,11 +110,32 @@
     </style>
 
 
+    <style name="items_list_image">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+    <!-- Cat_list-->
+    <!-- Cat_list-->
+    <style name="items_list_area">
+        <item name="android:background">@color/yallowButton</item>
+
+    </style>
+    <style name="items_list_title">
+        <item name="android:textColor">@color/yallowButtonColor</item>
+
+    </style>
+
+
     <style name="cat_list_image">
         <item name="android:layout_width">90dp</item>
         <item name="android:layout_height">70dp</item>
     </style>
     <!-- Cat_list-->
+
+
+
+
+
 
     <style name="main_data">
         <item name="android:layout_marginTop">40dp</item>

@@ -40,10 +40,10 @@ public class dbOperations {
     public dbOperations(String table, String type) {
         this.table = table;
         this.type = type;
-        this.addData=new HashMap<>();
+        this.addData = new HashMap<>();
     }
 
-    public   HashMap<String, String> commit() {
+    public HashMap<String, HashMap<String, String>> commit() {
         return getFromserver();
     }
 
@@ -53,18 +53,18 @@ public class dbOperations {
         nameValuePairs.add(new BasicNameValuePair("table", this.table));
         nameValuePairs.add(new BasicNameValuePair("set", this.type));
         nameValuePairs.add(new BasicNameValuePair("where", this.where));
-      if (this.addData !=null) {
-           for (String k : this.addData.keySet()) {
+        if (this.addData != null) {
+            for (String k : this.addData.keySet()) {
                 nameValuePairs.add(new BasicNameValuePair(k, this.addData.get(k)));
             }
 
-    }
+        }
         return nameValuePairs;
     }
 
 
-    public    HashMap<String, String> getFromserver() {
-        String URL = config.webServiecURL ;
+    public HashMap<String, HashMap<String, String>> getFromserver() {
+        String URL = config.webServiecURL;
         StringBuilder stringBuilder = new StringBuilder();
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(config.webServiecURL);
@@ -91,22 +91,71 @@ public class dbOperations {
         }
         String c = stringBuilder.toString();
 
-
+//[{"id":"1","title":"\u0627\u0644\u062d\u0631\u0648\u0641 \u0627\u0644\u0627\u0628\u062c\u062f\u064a\u0647","image":"5628cf739d5ff.jpg","des":"sdfsdfsdf\r\nsd\r\nfsd\r\nfsd\r\nfs\r\ndf","enabled":"0"}
+// ,{"id":"2","title":"\u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a","image":"5628cf84e5d66.jpg","des":"\u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a \u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a \u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a \u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a","enabled":"0"},{"id":"3","title":"\u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647","image":"5628cf521309c.jpg","des":"\u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647 \u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647 \u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647","enabled":"0"}]
         return this.jsonStringToArray(c);
     }
 
 
-    HashMap<String, String>jsonStringToArray(String jsonString) {
+    HashMap<String, HashMap<String, String>> jsonStringToArray(String jsonString) {
+        //  ArrayList<String> stringArray = new ArrayList<String>();
+        HashMap<String, String> map = new HashMap<String, String>();
+        HashMap<String, HashMap<String, String>> r = new HashMap<String, HashMap<String, String>>();
+        try {
+            JSONObject c = new JSONObject(jsonString);
+
+
+            r.put("log", jsoneTomap(c));
+
+
+            if (c.has("row")) {
+                r.put("0", jsoneTomap(c.getJSONObject("row")));
+            }
+            if (c.has("data")) {
+                JSONArray data = c.getJSONArray("data");
+                for (int i = 0; i < data.length(); i++) {
+                    r.put(i + "", jsoneTomap(data.getJSONObject(i)));
+                }
+            }
+
+        } catch (JSONException e) {
+
+            String aaaaaa = e.getMessage();
+            Log.d("readJSONFeed", e.getLocalizedMessage());
+        }
+        return r;
+    }
+
+
+    HashMap<String, String> jsoneTomap(JSONObject thisdata) {
+        HashMap<String, String> mapdata = new HashMap<String, String>();
+
+        Iterator<String> ir = thisdata.keys();
+
+        try {
+            while (ir.hasNext()) {
+                String currentKey = ir.next();
+                mapdata.put(currentKey, thisdata.getString(currentKey));
+            }
+
+        } catch (JSONException e) {
+
+            String aaaaaa = e.getMessage();
+            Log.d("readJSONFeed", e.getLocalizedMessage());
+        }
+
+
+        return mapdata;
+
+    }
+
+    HashMap<String, String> jsonStringToArrayM(String jsonString) {
         ArrayList<String> stringArray = new ArrayList<String>();
         HashMap<String, String> map = new HashMap<String, String>();
 
         try {
 
-
-            JSONObject c;
-
-
-            c = new JSONObject(jsonString);
+            JSONObject c = new JSONObject(jsonString);
 
 
             Iterator<String> iter = c.keys();
@@ -123,7 +172,6 @@ public class dbOperations {
         }
         return map;
     }
-
 }
 
 

@@ -6,6 +6,7 @@ package com.pcland15.ismail.sal.libs;
 public class config {
 
     public  static  String  webServiecURL="http://sign.decorplanner.com/webserves/";
+    public  static  String  imagePath="http://sign.decorplanner.com/upload/";
 
 
 

@@ -22,12 +22,13 @@ public class user_reg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_reg);
+
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-     /*   dbOperations db =new dbOperations("studentes" , "get_row");
-        db.commit();*/
+
 
         email = (TextView) findViewById(R.id.uersreg_email_input);
         password = (TextView) findViewById(R.id.uersreg_password_input);
@@ -78,8 +79,8 @@ public class user_reg extends AppCompatActivity {
 
 
 
-        HashMap<String, String> a = o.commit();
-        if (a.get("opstauts").equalsIgnoreCase("true")) {
+        HashMap<String, HashMap<String, String>>a = o.commit();
+        if (a.get("log").get("opstauts").equalsIgnoreCase("true")) {
 
             Toast t = Toast.makeText(this, "Done", Toast.LENGTH_LONG);
             t.show();

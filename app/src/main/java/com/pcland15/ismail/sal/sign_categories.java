@@ -31,6 +31,7 @@ public class sign_categories extends AppCompatActivity {
 
     HashMap<String, HashMap<String, String>> dbdata;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +41,14 @@ public class sign_categories extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-        getData();
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getData();
+    }
 
     void getData() {
 
@@ -81,7 +87,7 @@ public class sign_categories extends AppCompatActivity {
 
         Intent t = new Intent(this, sign_items_list.class);
         t.putExtra("id", id);
-        startActivityForResult(t, 0);
+        startActivity(t);
     }
 
 

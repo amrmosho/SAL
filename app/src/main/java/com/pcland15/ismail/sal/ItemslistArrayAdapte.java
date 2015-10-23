@@ -11,14 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pcland15.ismail.sal.libs.cat_list;
-import com.pcland15.ismail.sal.libs.config;
 import com.pcland15.ismail.sal.libs.ui;
 
 import java.util.List;
 
 
 class ItemslistArrayAdapte extends ArrayAdapter<cat_list> {
-    public int resLayout= R.layout.items_list;
+    public int resLayout = R.layout.items_list;
 
     Context context;
     List<cat_list> objects;
@@ -37,9 +36,35 @@ class ItemslistArrayAdapte extends ArrayAdapter<cat_list> {
         View view = inflater.inflate(resLayout, null);
 
         TextView t = (TextView) view.findViewById(R.id.list_items_title);
-        ImageView i = (ImageView) view.findViewById(R.id.list_items_image);
         t.setText(cat.getTitle());
-        i.setImageDrawable(ui.LoadImageFromWebOperations(config.imagePath + cat.getImage()));
+        ImageView i = (ImageView) view.findViewById(R.id.list_items_image);
+
+        //
+
+        //
+
+        ui.loadImage(context, i, cat.getImage());
+
+       /* try {
+
+            String name = cat.getImage();
+            int pos = name.lastIndexOf(".");
+            if (pos > 0) {
+                name = name.substring(0, pos);
+            }
+            int myi = context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+            i.setImageResource(myi);
+
+        } catch (Exception e) {
+
+            try {
+                i.setImageDrawable();
+
+            } catch (Exception x) {
+
+            }
+        }*/
+
         return view;
     }
 }

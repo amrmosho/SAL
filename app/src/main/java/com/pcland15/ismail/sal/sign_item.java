@@ -1,10 +1,21 @@
 package com.pcland15.ismail.sal;
 
+import android.net.Uri;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.VideoView;
+
+import com.pcland15.ismail.sal.libs.dbOperations;
+import com.pcland15.ismail.sal.libs.ui;
+
+import java.util.HashMap;
 
 public class sign_item extends AppCompatActivity {
+    String myID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +27,59 @@ public class sign_item extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
 
         }
+
+
+        //  TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
+
+
+        TabHost tabHost = (TabHost) findViewById(R.id.mytabhost);
+        tabHost.setup();
+
+        TabHost.TabSpec tabimage = tabHost.newTabSpec("Image");
+        tabimage.setContent(R.id.tab_image);
+
+        tabimage.setIndicator(getString(R.string.image));
+        tabHost.addTab(tabimage);
+
+
+
+        TabHost.TabSpec tabvido = tabHost.newTabSpec("Video");
+        tabvido.setContent(R.id.tab_vido);
+        tabvido.setIndicator(getString(R.string.video));
+        tabHost.addTab(tabvido);
+
+
+       getData();
+
+    }
+
+
+    void getData() {
+
+        dbOperations db = new dbOperations("sign", "get_data");
+        db.where = "id=" + this.myID;
+        HashMap<String, HashMap<String, String>> allData = db.commit();
+
+
+        HashMap<String, String> data = allData.get("0");
+
+        ImageView i = (ImageView) findViewById(R.id.sign_item_image);
+      //  i.setImageDrawable(ui.loadImage(config.imagePath + data.get("image")));
+        ui.loadImage(this, i, data.get("image"));
+
+        TextView t = (TextView) findViewById(R.id.sign_item_title);
+        t.setText(data.get("name"));
+
+
+        String vidAddress = "https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
+        Uri vidUri = Uri.parse(vidAddress);
+        VideoView v = (VideoView) findViewById(R.id.sign_item_vido);
+
+        v.setVideoURI(vidUri);
+v.start();
+        TextView d = (TextView) findViewById(R.id.sign_item_des);
+        d.setText(data.get("desc"));
+
 
     }
 }

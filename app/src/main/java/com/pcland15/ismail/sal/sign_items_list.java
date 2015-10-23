@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.pcland15.ismail.sal.libs.cat_list;
 import com.pcland15.ismail.sal.libs.dbOperations;
@@ -34,16 +35,35 @@ public class sign_items_list extends AppCompatActivity {
         }
         catID = getIntent().getStringExtra("id");
 
-        getData();
+
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getData();
+    }
 
     void getData() {
 
         dbOperations db = new dbOperations("sign", "get_data");
         db.where = "cat_id=" + this.catID;
         HashMap<String, HashMap<String, String>> data = db.commit();
+
+
+
+
+        dbOperations catdb = new dbOperations("sign_categries", "get_data");
+        catdb.where = "id=" + this.catID;
+
+        HashMap<String, HashMap<String, String>> Allcatdb = db.commit();
+
+
+        HashMap<String, String> catdata = Allcatdb.get("0");
+        TextView t = (TextView) findViewById(R.id.sign_items_title);
+        t.setText(catdata.get("title"));
+
 
 
         final List<cat_list> mydata = new ArrayList<>();
@@ -76,6 +96,6 @@ public class sign_items_list extends AppCompatActivity {
 
         Intent t = new Intent(this, sign_item.class);
         t.putExtra("id", id);
-        startActivityForResult(t, 0);
+        startActivity(t);
     }
 }

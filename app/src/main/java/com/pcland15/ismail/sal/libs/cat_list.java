@@ -5,6 +5,12 @@ package com.pcland15.ismail.sal.libs;
  */
 public class cat_list {
 
+    private  String title="";
+    private  String des="";
+    private  String image="";
+    private String id="";
+
+
     public String getTitle() {
         return title;
     }
@@ -29,10 +35,6 @@ public class cat_list {
         this.image = image;
     }
 
-    private  String title="";
-    private  String des="";
-    private  String image="";
-    private String id="";
 
     public String getID() {
         return id;
@@ -42,5 +44,9 @@ public class cat_list {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return this.title;
+    }
 
 }

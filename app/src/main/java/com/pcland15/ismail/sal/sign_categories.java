@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,10 +29,12 @@ import com.pcland15.ismail.sal.libs.ui;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class sign_categories extends AppCompatActivity {
 
     HashMap<String, HashMap<String, String>> dbdata;
+    listArrayAdapte adapter ;
 
 
     @Override
@@ -40,14 +45,40 @@ public class sign_categories extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
-
+        getData();
+        serach();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        getData();
+
+
+
+    void serach (){
+        final EditText editsearch = (EditText) findViewById(R.id.catserchin);
+
+        final Context o = this;
+
+        // Capture Text in EditText
+        editsearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+                //adapter.filter(text);
+                adapter.getFilter().filter(text);
+
+                Toast.makeText(o, text, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+            }
+        });
     }
 
     void getData() {
@@ -74,7 +105,8 @@ public class sign_categories extends AppCompatActivity {
         final Context o = this;
 
         GridView l = (GridView) findViewById(R.id.sign_cat_List);
-        l.setAdapter( new listArrayAdapte(this, 0, mydata));
+        adapter=  new listArrayAdapte(this, 0, mydata);
+        l.setAdapter(adapter );
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

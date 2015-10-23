@@ -30,6 +30,8 @@
             style="@style/navbar_title"
 
             />
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -49,6 +51,16 @@
             android:horizontalSpacing="10dp"
             android:stretchMode="columnWidth"
             android:gravity="center"
+
+            android:layout_marginBottom="40dp"
+            />
+
+
+        <EditText
+            android:id="@+id/catserchin"
+            android:layout_width="match_parent"
+            style="@style/searchBT"
+
             />
     </RelativeLayout>
 </RelativeLayout>

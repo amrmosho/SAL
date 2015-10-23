@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pcland15.ismail.sal.libs.cat_list;
 import com.pcland15.ismail.sal.libs.dbOperations;
@@ -18,11 +23,15 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.ConsoleHandler;
 
 public class sign_items_list extends AppCompatActivity {
     String catID = "";
 
+
+    ItemslistArrayAdapte
+    adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +44,42 @@ public class sign_items_list extends AppCompatActivity {
         }
         catID = getIntent().getStringExtra("id");
 
-
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         getData();
+
+        serach();
     }
+
+
+
+void serach (){
+    final EditText editsearch = (EditText) findViewById(R.id.serchin);
+
+final Context o = this;
+
+    // Capture Text in EditText
+    editsearch.addTextChangedListener(new TextWatcher() {
+
+        @Override
+        public void afterTextChanged(Editable arg0) {
+            String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+            //adapter.filter(text);
+            adapter.getFilter().filter(text);
+
+            Toast.makeText(o, text, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence arg0, int arg1,
+                                      int arg2, int arg3) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                  int arg3) {
+        }
+    });
+}
+
 
     void getData() {
 
@@ -81,8 +117,17 @@ public class sign_items_list extends AppCompatActivity {
 
         final Context o = this;
 
+
+
+        adapter=   new ItemslistArrayAdapte(this, 0, mydata);
+
+
+  //       adapter=   new ArrayAdapter(this,android.R.layout.simple_list_item_1 , mydata);
+
+
+
         ListView l = (ListView) findViewById(R.id.sign_items_List);
-        l.setAdapter(new ItemslistArrayAdapte(this, 0, mydata));
+        l.setAdapter(adapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

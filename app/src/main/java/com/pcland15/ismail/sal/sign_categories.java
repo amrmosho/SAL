@@ -123,4 +123,8 @@ public class sign_categories extends AppCompatActivity {
     }
 
 
+    public void goBack(View view) {
+
+        this.finish();
+    }
 }

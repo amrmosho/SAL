@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -81,5 +82,9 @@ v.start();
         d.setText(data.get("desc"));
 
 
+    }
+    public void goBack(View view) {
+
+        this.finish();
     }
 }

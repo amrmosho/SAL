@@ -80,6 +80,10 @@ final Context o = this;
     });
 }
 
+    public void goBack(View view) {
+
+        this.finish();
+    }
 
     void getData() {
 

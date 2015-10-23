@@ -11,20 +11,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/signtheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+
+
+
+
+        </activity>
         <activity
             android:name=".user_login"
             android:label="@string/title_activity_user_login"
-            android:theme="@style/signtheme"></activity>
+            android:theme="@style/signtheme">
+
+
+        </activity>
         <activity android:name=".user_reg"></activity>
         <activity android:name=".sign_categories">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity android:name=".sign_item">
 

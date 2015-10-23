@@ -3,8 +3,14 @@
     <string name="title_activity_user_login">user_login</string>
     <string name="back">الى الخلف</string>
     <string name="send">أرسال </string>
+    <string name="send">أرسال </string>
+    <string name="send">أرسال </string>
+    <string name="send">أرسال </string>
 
 
     <string name="user_reg">حساب جديد </string>
     <string name="sign_categories">تصنيفات الاشارات  </string>
+    <string name="newsign_name">الاسم:</string>
+    <string name="newsign_cat">التصنيف:</string>
+    <string name="newsign_desc">الوصف:</string>
 </resources>

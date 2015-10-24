@@ -32,6 +32,7 @@ public class sign_item extends AppCompatActivity {
 
 
         //  TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
+        myID = getIntent().getStringExtra("id");
 
 
         TabHost tabHost = (TabHost) findViewById(R.id.mytabhost);

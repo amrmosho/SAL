@@ -9,50 +9,42 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pcland15.ismail.sal.libs.cat_list;
 import com.pcland15.ismail.sal.libs.dbOperations;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.logging.ConsoleHandler;
 
-public class sign_items_list extends AppCompatActivity {
-    String catID = "";
+public class quiz_cates extends AppCompatActivity {
+    HashMap<String, HashMap<String, String>> dbdata;
+    listArrayAdapte adapter ;
 
-
-    ItemslistArrayAdapte
-            adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_items_list);
+        setContentView(R.layout.activity_quiz_cates);
+
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-
         }
-        catID = getIntent().getStringExtra("id");
-
         getData();
-
         serach();
     }
 
 
-    void serach() {
-        final EditText editsearch = (EditText) findViewById(R.id.serchin);
+
+
+    void serach (){
+        final EditText editsearch = (EditText) findViewById(R.id.quiz_catserchin);
 
         final Context o = this;
 
@@ -80,61 +72,51 @@ public class sign_items_list extends AppCompatActivity {
         });
     }
 
-    public void goBack(View view) {
-
-        this.finish();
-    }
-
     void getData() {
 
+        dbOperations db = new dbOperations("quiz_categries", "get_data");
 
-        TextView t = (TextView) findViewById(R.id.sign_items_title);
-
-
-        dbOperations catdb = new dbOperations("sign_categries", "get_data");
-        catdb.where = "id=" + this.catID;
-        HashMap<String, String> catdata = catdb.commit().get("0");
-        t.setText(catdata.get("title"));
-
-
-        dbOperations db = new dbOperations("sign", "get_data");
-        db.where = "cat_id=" + this.catID;
         HashMap<String, HashMap<String, String>> data = db.commit();
 
 
-        if (data.size() > 0) {
-            final List<cat_list> mydata = new ArrayList<>();
+        final List<cat_list> mydata = new ArrayList<>();
 
-            for (String k : data.keySet()) {
-                if (!k.equalsIgnoreCase("log")) {
-                    cat_list c = new cat_list();
-                    c.setTitle(data.get(k).get("name"));
-                    c.setImage(data.get(k).get("image"));
-                    c.setID(data.get(k).get("id"));
-                    mydata.add(c);
-                }
-
+        for (String k : data.keySet()) {
+            if (!k.equalsIgnoreCase("log")) {
+                cat_list c = new cat_list();
+                c.setTitle(data.get(k).get("title"));
+                c.setImage(data.get(k).get("image"));
+                c.setImage(data.get(k).get("image"));
+                c.setID(data.get(k).get("id"));
+                mydata.add(c);
             }
 
-            adapter = new ItemslistArrayAdapte(this, 0, mydata);
-
-
-            ListView l = (ListView) findViewById(R.id.sign_items_List);
-            l.setAdapter(adapter);
-            l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    viewItemsList(mydata.get(position).getID());
-                }
-            });
         }
+
+        final Context o = this;
+
+        GridView l = (GridView) findViewById(R.id.quiz_cat_List);
+        adapter=  new listArrayAdapte(this, 0, mydata);
+        l.setAdapter(adapter);
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                viewItemsList(mydata.get(position).getID());
+            }
+        });
     }
 
 
     void viewItemsList(String id) {
 
-        Intent t = new Intent(this, sign_item.class);
+        Intent t = new Intent(this, quiz_itme.class);
         t.putExtra("id", id);
         startActivity(t);
+    }
+
+
+    public void goBack(View view) {
+
+        this.finish();
     }
 }

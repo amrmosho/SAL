@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -40,7 +41,6 @@ public class sign_item extends AppCompatActivity {
         tabimage.setContent(R.id.tab_image);
 
         tabimage.setIndicator(getString(R.string.image));
-        tabHost.addTab(tabimage);
 
 
 
@@ -48,6 +48,7 @@ public class sign_item extends AppCompatActivity {
         tabvido.setContent(R.id.tab_vido);
         tabvido.setIndicator(getString(R.string.video));
         tabHost.addTab(tabvido);
+        tabHost.addTab(tabimage);
 
 
        getData();
@@ -65,7 +66,6 @@ public class sign_item extends AppCompatActivity {
         HashMap<String, String> data = allData.get("0");
 
         ImageView i = (ImageView) findViewById(R.id.sign_item_image);
-      //  i.setImageDrawable(ui.loadImage(config.imagePath + data.get("image")));
         ui.loadImage(this, i, data.get("image"));
 
         TextView t = (TextView) findViewById(R.id.sign_item_title);
@@ -77,6 +77,11 @@ public class sign_item extends AppCompatActivity {
         VideoView v = (VideoView) findViewById(R.id.sign_item_vido);
 
         v.setVideoURI(vidUri);
+
+        MediaController mediaController = new
+                MediaController(this);
+        mediaController.setAnchorView(v);
+        v.setMediaController(mediaController);
 v.start();
         TextView d = (TextView) findViewById(R.id.sign_item_des);
         d.setText(data.get("desc"));

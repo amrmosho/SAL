@@ -28,14 +28,14 @@
         <activity android:name=".sign_categories">
 
 
+        </activity>
+        <activity android:name=".sign_item">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".sign_item">
-
         </activity>
         <activity android:name=".sign_items_list">
 

@@ -13,19 +13,16 @@
     <RelativeLayout
         style="@style/navbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp">
+        android:id="@+id/topbar">
 
         <Button
             android:id="@+id/button4"
             style="@style/navbar_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/back"
+            android:onClick="goBack"
 
-            android:onClick="goBack"/>
+            android:text="@string/back" />
 
         <TextView
             android:id="@+id/textView2"
@@ -41,31 +38,33 @@
     <RelativeLayout
         style="@style/main_data"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_nav_bar"
+        android:layout_below="@+id/topbar">
 
 
         <TextView
             android:id="@+id/sign_item_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true" />
 
         <TabHost
-            android:layout_marginTop="5dp"
             android:id="@+id/mytabhost"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="300dp"
             android:layout_below="@+id/sign_item_title"
-
             android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="5dp"
             android:focusable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
                 android:orientation="vertical">
 
                 <TabWidget
@@ -82,16 +81,14 @@
                         android:id="@+id/tab_vido"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
                         android:orientation="vertical">
 
                         <VideoView
                             android:id="@+id/sign_item_vido"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:backgroundTint="@color/colorPrimary"
-                            android:clickable="true"
-                            android:layout_weight="1"
-                          />
+                           />
 
                     </LinearLayout>
 
@@ -99,6 +96,7 @@
                         android:id="@+id/tab_image"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
                         android:orientation="vertical">
 
                         <ImageView
@@ -118,6 +116,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+
             android:layout_below="@+id/mytabhost">
 
             <TextView
@@ -129,5 +128,14 @@
                 android:text="Medium Text"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </RelativeLayout>
+
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_nav_bar"
+        style="@style/navbarbottom"
+        android:layout_width="match_parent">
+
+    </RelativeLayout>
+
 </RelativeLayout>

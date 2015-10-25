@@ -3,6 +3,10 @@
     <string name="title_activity_user_login">user_login</string>
     <string name="back">الى الخلف</string>
     <string name="send">أرسال </string>
+    <string name="right_ans_number">عدد الاجابات الصحيحه </string>
+    <string name="welcome">مرحبا </string>
+
+    <string name="worng_ans_number">عدد الاجابات الخطأ</string>
 
     <string name="Next">التالى </string>
 

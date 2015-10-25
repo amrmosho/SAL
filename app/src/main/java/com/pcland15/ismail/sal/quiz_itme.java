@@ -23,11 +23,14 @@ public class quiz_itme extends AppCompatActivity {
     TextView title;
     ImageView img;
     ImageView imgStatus;
-    TextView   rightAnsNumber;
-    TextView   wrongAnsNumber;
+    TextView rightAnsNumber;
+    TextView wrongAnsNumber;
     RelativeLayout dataLayout;
     RelativeLayout Resayout;
-    String ansid="";
+
+    ImageView imgResStatus;
+    TextView quizAnsP;
+    String ansid = "";
     ListView list;
     String catID = "";
     String position = "0";
@@ -43,22 +46,26 @@ public class quiz_itme extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
+
         title = (TextView) findViewById(R.id.quiz_q_title);
         img = (ImageView) findViewById(R.id.quiz_q_image);
         list = (ListView) findViewById(R.id.quiz_list);
         imgStatus = (ImageView) findViewById(R.id.quiz_status_image);
-           wrongAnsNumber = (TextView) findViewById(R.id.wrong_ans_number);
-            rightAnsNumber = (TextView) findViewById(R.id.right_ans_number);
-
-         dataLayout = (RelativeLayout) findViewById(R.id.quiz_item_data);
-         Resayout = (RelativeLayout) findViewById(R.id.quiz_item_res);
-
+        wrongAnsNumber = (TextView) findViewById(R.id.wrong_ans_number);
+        rightAnsNumber = (TextView) findViewById(R.id.right_ans_number);
+        dataLayout = (RelativeLayout) findViewById(R.id.quiz_item_data);
+        Resayout = (RelativeLayout) findViewById(R.id.quiz_item_res);
         catID = getIntent().getStringExtra("id");
+
+        imgResStatus = (ImageView) findViewById(R.id.quiz__res_status);
+        quizAnsP = (TextView) findViewById(R.id.quiz_ans_p);
+
 
         dbOperations db = new dbOperations("quiz_questions", "get_data");
         db.where = "cat_id=" + this.catID;
         allData = db.commit();
         getData();
+
     }
 
     void getData() {
@@ -76,12 +83,11 @@ public class quiz_itme extends AppCompatActivity {
 
             title.setText(data.get("question"));
             ui.loadImage(this, img, data.get("image"));
-            ansid=data.get("answer");
+            ansid = data.get("answer");
 
             dbOperations db = new dbOperations("answers", "get_data");
             db.where = "q_id=" + data.get("id");
             final HashMap<String, HashMap<String, String>> ansData = db.commit();
-
 
 
             if (ansData.size() > 0) {
@@ -109,26 +115,43 @@ public class quiz_itme extends AppCompatActivity {
                 });
 
             }
-        }else{
-            rightAnsNumber.setText(""+this.rightAns);
-            wrongAnsNumber.setText(""+this.wrongAns);
-            dataLayout.setVisibility(View.GONE);
+        } else {
 
+
+            float all = this.rightAns + this.wrongAns;
+
+            float allp = (this.rightAns/all) * 100;
+
+            if (allp >= 50) {
+                imgResStatus.setImageResource(R.drawable.thumb_up);
+            } else {
+                imgResStatus.setImageResource(R.drawable.thumb_down);
+            }
+
+
+
+            quizAnsP.setText(allp + "%");
+
+            rightAnsNumber.setText("" + this.rightAns);
+            wrongAnsNumber.setText("" + this.wrongAns);
+
+
+            dataLayout.setVisibility(View.GONE);
             Resayout.setVisibility(View.VISIBLE);
         }
     }
 
 
-    int rightAns=0;
-    int wrongAns=0;
+    int rightAns = 0;
+    int wrongAns = 0;
 
 
-    public void goNext( String id) {
-        if (id.equalsIgnoreCase(this.ansid)){
+    public void goNext(String id) {
+        if (id.equalsIgnoreCase(this.ansid)) {
             imgStatus.setImageResource(R.drawable.right);
             rightAns++;
 
-        }else{
+        } else {
             imgStatus.setImageResource(R.drawable.wrong);
 
             wrongAns++;
@@ -154,4 +177,10 @@ public class quiz_itme extends AppCompatActivity {
 
         }
     };
+
+
+    public void goBack(View view) {
+
+        this.finish();
+    }
 }

@@ -18,18 +18,21 @@
             android:label="@string/title_activity_user_login"
             android:theme="@style/signtheme" >
         </activity>
-        <activity android:name=".user_reg" >
-        </activity>
+        <activity android:name=".user_reg" />
         <activity android:name=".sign_categories" >
+        </activity>
+        <activity android:name=".sign_item" >
+        </activity>
+        <activity android:name=".sign_items_list" >
+        </activity>
+        <activity android:name=".quiz_cates" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sign_item" >
-        </activity>
-        <activity android:name=".sign_items_list" >
+        <activity android:name=".quiz_itme" >
         </activity>
     </application>
 

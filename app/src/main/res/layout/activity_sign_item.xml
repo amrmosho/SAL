@@ -1,10 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.pcland15.ismail.sal.sign_item">
+
+
+    <RelativeLayout
+        style="@style/navbar"
+        android:layout_width="match_parent"
+        android:id="@+id/topbar">
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/navbar_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="goBack"
+
+            android:text="@string/back" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/navbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/main_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_nav_bar"
+        android:layout_below="@+id/topbar">
+
+
+        <TextView
+            android:id="@+id/sign_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true" />
+
+        <TabHost
+            android:id="@+id/mytabhost"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/sign_item_title"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="5dp"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/tab_vido"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical">
+
+                        <VideoView
+                            android:id="@+id/sign_item_vido"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                           />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/sign_item_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/abc_btn_radio_to_on_mtrl_000" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+
+            android:layout_below="@+id/mytabhost">
+
+            <TextView
+                android:id="@+id/sign_item_des"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_nav_bar"
+        style="@style/navbarbottom"
+        android:layout_width="match_parent">
+
+    </RelativeLayout>
 
 </RelativeLayout>

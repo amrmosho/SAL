@@ -9,6 +9,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.pcland15.ismail.sal.home">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/navbar"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:id="@+id/navbar">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:id="@+id/button4"
+            style="@style/navbar_back_button"
+            android:onClick="goBack"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/home"
+            android:id="@+id/home_title"
+            style="@style/navbar_title"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+       android:layout_below="@+id/navbar">
     <ImageButton
         android:id="@+id/imageButton"
         style="@style/home_main_bt"
@@ -96,20 +133,6 @@
         android:layout_toLeftOf="@+id/imageView4"
         android:layout_toStartOf="@+id/imageView4" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton5"
-        android:src="@drawable/back_bt_bg"
-        android:background="@null"
-        android:layout_alignBottom="@+id/imageView4"
-        android:layout_alignLeft="@+id/imageButton4"
-        android:layout_alignStart="@+id/imageButton4"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-
-        android:onClick="goBack"
-        />
-
+    </RelativeLayout>
 
 </RelativeLayout>

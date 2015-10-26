@@ -1,6 +1,5 @@
 package com.pcland15.ismail.sal;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.StrictMode;
@@ -8,23 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pcland15.ismail.sal.libs.cat_list;
-import com.pcland15.ismail.sal.libs.config;
 import com.pcland15.ismail.sal.libs.dbOperations;
-import com.pcland15.ismail.sal.libs.ui;
 
 import java.util.ArrayList;
 import java.util.HashMap;

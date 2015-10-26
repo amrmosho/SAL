@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+
+import com.pcland15.ismail.sal.libs.ui;
 
 public class home extends AppCompatActivity {
 
@@ -11,6 +14,8 @@ public class home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+      //  ui.applyFont(this,(TextView)findViewById(R.id.home_title));
     }
 
     public void gotoSigns(View view) {

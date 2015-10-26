@@ -1,82 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.pcland15.ismail.sal.quiz_itme">
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/quiz_item_data"
-        android:visibility="gone"
-        >
+        android:id="@+id/topbar"
+        style="@style/navbar"
+        android:layout_width="match_parent">
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/navbar_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="goBack"
+
+            android:text="@string/back" />
 
         <TextView
+            android:id="@+id/textView2"
+            style="@style/navbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/sign"
             android:textAppearance="?android:attr/textAppearanceLarge"
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/quiz_item_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/quiz_q_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="quiz_q_title"
-            android:id="@+id/quiz_q_title" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/quiz_q_title"
-
-            android:id="@+id/quiz_q_image" />
-
-        <ListView
+            android:id="@+id/quiz_q_image"
+            style="@style/main_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/quiz_list"
-            android:layout_below="@+id/quiz_q_image"
+            android:layout_height="250dp"
+            android:layout_below="@+id/quiz_q_title"
+            android:maxHeight="10dp"
 
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="48dp"
+            android:src="@drawable/l7"
+
+
             />
 
+        <ListView
+            android:id="@+id/quiz_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/quiz_q_image"
+            android:layout_marginBottom="48dp"
+            android:layout_marginTop="48dp" />
+
         <ImageView
+            android:id="@+id/quiz_status_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/quiz_status_image"
-            android:src="@drawable/right"
-    android:visibility="gone"
             android:layout_alignBottom="@+id/quiz_q_image"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/right"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/quiz_item_res"
-        android:visibility="visible"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:visibility="gone">
 
         <TextView
+            android:id="@+id/right_ans_number_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+
+
+            android:layout_alignTop="@+id/wrong_ans_number_txt"
+            android:layout_marginLeft="5dp"
+            android:text="@string/right_ans_number"
+
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/right_ans_number"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="58dp" />
+
+
+            />
 
         <TextView
+            android:id="@+id/wrong_ans_number_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="@string/worng_ans_number"
+
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/wrong_ans_number"
-            android:layout_below="@+id/right_ans_number"
+
+            />
+
+
+        <TextView
+            android:id="@+id/right_ans_number"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="41dp" />
+            android:layout_below="@+id/right_ans_number_txt"
+            android:layout_marginTop="5dp"
+            android:text="15"
+            android:textAlignment="center"
+
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/wrong_ans_number"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/wrong_ans_number_txt"
+            android:layout_alignRight="@+id/wrong_ans_number_txt"
+            android:layout_below="@+id/wrong_ans_number_txt"
+            android:layout_marginTop="5dp"
+            android:text="15"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            />
+
+
+        <TextView
+            android:id="@+id/quiz_ans_p"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/wrong_ans_number_txt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/wrong_ans_number_txt"
+            android:layout_below="@+id/wrong_ans_number_txt"
+            android:layout_marginTop="50dp"
+            android:text="15"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="50dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/riocne" />
+
+        <ImageView
+            android:id="@+id/quiz__res_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quiz_ans_p"
+            android:layout_toLeftOf="@+id/wrong_ans_number"
+            android:layout_toStartOf="@+id/wrong_ans_number"
+            android:src="@drawable/thumb_up" />
     </RelativeLayout>
 </RelativeLayout>

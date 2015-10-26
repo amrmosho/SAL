@@ -3,6 +3,10 @@
     <string name="title_activity_user_login">user_login</string>
     <string name="back">الى الخلف</string>
     <string name="send">أرسال </string>
+    <string name="right_ans_number">عدد الاجابات الصحيحه </string>
+    <string name="welcome">مرحبا </string>
+    <string name="login">دخول </string>
+    <string name="worng_ans_number">عدد الاجابات الخطأ</string>
 
 
     <string name="user_reg">حساب جديد </string>
@@ -13,6 +17,11 @@
     <string name="sign">أشارة</string>
 
     <string name="signs">الاشارات </string>
+
+    <string name="msg_errorlogin">عفوا البريد أو كلمة السر خطا  </string>
+
+
+
     <string name="title_activity_item_tabs">item_tabs</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>

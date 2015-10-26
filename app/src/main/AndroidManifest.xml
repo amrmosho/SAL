@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/signtheme" >
         <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".user_login"
@@ -26,13 +31,12 @@
         <activity android:name=".sign_items_list" >
         </activity>
         <activity android:name=".quiz_cates" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".quiz_itme" >
+        </activity>
+        <activity android:name=".home" >
+
         </activity>
     </application>
 

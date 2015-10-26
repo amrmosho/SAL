@@ -1,8 +1,11 @@
 package com.pcland15.ismail.sal.libs;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -39,5 +42,10 @@ i.setBackgroundColor(0xFF00FF00);
         }
 
 
+    }
+
+    public static void applyFont(Context context, TextView tx) {
+       Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/AL-FARES.TTF");
+        tx.setTypeface(custom_font);
     }
 }

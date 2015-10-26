@@ -8,6 +8,11 @@
     <string name="login">دخول </string>
     <string name="worng_ans_number">عدد الاجابات الخطأ</string>
 
+    <string name="Next">التالى </string>
+
+    <string name="video"> فيديو </string>
+    <string name="image">صورة</string>
+    <string name="home"> الرائيسيه </string>
 
     <string name="user_reg">حساب جديد </string>
     <string name="sign_categories">تصنيفات الاشارات  </string>

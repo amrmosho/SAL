@@ -59,6 +59,7 @@
 
     <style name="label">
         <item name="android:textColor">#fff</item>
+        <item name="android:textAlignment">textEnd</item>
 
 
     </style>
@@ -66,7 +67,12 @@
     <style name="form_label" parent="label">
 
     </style>
+    <style name="title" parent="label">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="title_quiz" parent="title">
 
+    </style>
 
     <style name="input_text">
 

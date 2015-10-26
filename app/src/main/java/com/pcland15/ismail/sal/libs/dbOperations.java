@@ -35,6 +35,7 @@ public class dbOperations {
     public String type = "";
     public String where = "";
 
+    public  static HashMap<String, String> userData;
     public HashMap<String, String> addData;
 
     public dbOperations(String table, String type) {

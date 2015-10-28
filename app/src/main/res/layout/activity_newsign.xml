@@ -22,10 +22,9 @@
             style="@style/navbar_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/back"
-
             android:onClick="goBack"
-            />
+
+            android:text="@string/back" />
 
 
         <ImageButton
@@ -50,161 +49,73 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
-
-        style="@style/main_data"
+    <LinearLayout
+        android:id="@+id/insert_bts"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
+
+
+        <EditText
+            android:id="@+id/newsign_name_input"
+            style="@style/form_input_text"
+            android:hint="@string/newsign_name"/>
 
 
 
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:stretchColumns="0"
-            android:layout_below="@+id/insert_bts"
-            android:id="@+id/from">
-
-            <TableRow
-
-                style="@style/form_table_row"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                >
-
-                <EditText
-                    android:id="@+id/newsign_name_input"
-                    style="@style/form_input_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0" />
-
-                <TextView
-                    android:id="@+id/newsign_name"
-                    style="@style/form_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-
-                    android:text="@string/newsign_name"
-
-                    />
+        <EditText
+            android:id="@+id/newsign_category_input"
+            style="@style/form_input_text"
+            android:hint="@string/newsign_cat" />
 
 
-            </TableRow>
-
-            <TableRow
-                style="@style/form_table_row"
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
+        <EditText
+            android:id="@+id/newsign_desc_input"
+            style="@style/form_input_text"
 
 
-                >
+            android:hint="@string/newsign_desc" />
 
-                <EditText
-                    android:id="@+id/newsign_category_input"
-                    style="@style/form_input_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0" />
-
-                <TextView
-                    android:id="@+id/newsign_category"
-                    style="@style/form_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-
-                    android:text="@string/newsign_cat"
-
-                    />
-
-
-            </TableRow>
-
-            <TableRow
-                style="@style/form_table_row"
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/newsign_desc_input"
-                    style="@style/form_input_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-
-                    android:layout_column="0" />
-
-                <TextView
-                    android:id="@+id/newsign_desc"
-                    style="@style/form_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-
-                    android:text="@string/newsign_desc"
-
-                    />
-
-
-            </TableRow>
-
-
-        </TableLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:id="@+id/insert_bts">
-
-            <Button
-                android:id="@+id/imageButton"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_column="0"
-                android:contentDescription="@string/desc"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="@string/newsign_button1"
-                style="@style/button"
-                />
-
-            <Button
-                android:id="@+id/imageButton3"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_column="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:contentDescription="@string/desc"
-                style="@style/button"
-                android:text="@string/newsign_button2"
-                />
-        </LinearLayout>
 
         <Button
-            android:id="@+id/imageButton4"
-            android:layout_width="120dp"
+            android:id="@+id/imageButton"
+            style="@style/button"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_column="0"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:contentDescription="@string/desc"
+            android:text="@string/newsign_button1" />
+
+        <Button
+            android:id="@+id/imageButton3"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_column="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/desc"
-            style="@style/button"
-            android:layout_below="@id/from"
-            android:text="@string/newsign_button3"
-            />
+            android:text="@string/newsign_button2" />
 
-    </RelativeLayout>
+
+        <Button
+            android:id="@+id/imageButton4"
+            style="@style/button"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/from"
+            android:layout_column="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/desc"
+            android:text="@string/newsign_button3" />
+
+    </LinearLayout>
 
 </RelativeLayout>

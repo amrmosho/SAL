@@ -64,7 +64,7 @@
             <EditText
                 android:id="@+id/newsign_name_input"
                 style="@style/form_input_text"
-                android:hint="@string/newsign_name"
+                android:hint="@string/newcat_name"
                />
 
 
@@ -72,7 +72,7 @@
             <EditText
                 android:id="@+id/newsign_desc_input"
                 style="@style/textarea"
-                android:hint="@string/newsign_name"
+                android:hint="@string/newcat_desc"
                 />
 
 

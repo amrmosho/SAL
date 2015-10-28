@@ -63,7 +63,10 @@
     <string name="addquiz_a4">الاجابة 4</string>
 
 
-    <string name="panel_sign">اضف علامة</string>
+    <string name="panel_sign">اضف اشارة</string>
     <string name="panel_cat">اضف تصنيف</string>
     <string name="panel_quiz">اضف اختبار</string>
+
+    <string name="newcat_desc">الوصف</string>
+    <string name="newcat_name">الاسم</string>
 </resources>

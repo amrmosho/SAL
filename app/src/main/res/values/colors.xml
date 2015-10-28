@@ -6,8 +6,9 @@
     <color name="colorPrimaryDark">#036c94</color>
     <color name="navigationBarColor">#03adc7</color>
     <color name="colorAccent">#f4d4d8</color>
-    <color name="yallowButton">#FEBB50</color>
+    <color name="yallowButton">#f9cc86</color>
 
+    <color name="yallowButtonDarck">#a76803</color>
     <color name="yallowButtonColor">#C43D4A</color>
     <color name="colorPrimaryStrok">#0595ab</color>
 </resources>

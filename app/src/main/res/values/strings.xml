@@ -2,6 +2,11 @@
     <string name="app_name">SAL</string>
     <string name="title_activity_user_login">user_login</string>
     <string name="back">الى الخلف</string>
+    <string name="home_txt_1"> قاموس لتعليم لغة الاشارة بصور وفيديوهات</string>
+    <string name="home_txt_2"> أحفظ أشاراتك الخاصة وعدلها متى شئت </string>
+    <string name="home_txt_3"> التحديث  الدورى لاحدث الاشارات </string>
+
+
     <string name="send">أرسال </string>
     <string name="right_ans_number">عدد الاجابات الصحيحه </string>
     <string name="welcome">مرحبا </string>
@@ -13,6 +18,7 @@
     <string name="video"> فيديو </string>
     <string name="image">صورة</string>
     <string name="home"> الرائيسيه </string>
+
 
     <string name="user_reg">حساب جديد </string>
     <string name="sign_categories">تصنيفات الاشارات  </string>
@@ -30,4 +36,13 @@
     <string name="title_activity_item_tabs">item_tabs</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="email">البريد الالكترونى</string>
+    <string name="password">كلمة السر</string>
+    <string name="about_title">عن البرنامج</string>
+    <string name="about">نبذة عن البرنامج</string>
+    <string name="new_user">مستخدم جديد</string>
+    <string name="name">الاسم</string>
+    <string name="repassword">أعادة كلمة السر</string>
+    <string name="new_user_password_not_msg">عفوا ولكن كلمة السر  وإعداة كلمة السر غير متطابقه</string>
+    <string name="new_user_empty_msg">عفو! ولكن هناك حقل مطلب فارغ</string>
 </resources>

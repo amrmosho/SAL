@@ -32,14 +32,60 @@
             android:text="برنامج تعليم لغه الاشارة "
             android:id="@+id/textView"
             style="@style/hometTitle"
+
+android:textSize="25dp"
             />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/home_txt_layout"
+
+
+            >
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/home_txt_3"
+                android:id="@+id/textView4"
+                android:paddingTop="10dp"
+
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/home_txt_2"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+
+                android:paddingTop="10dp"
+                android:id="@+id/home_txt_1" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+
+                android:paddingTop="10dp"
+
+                android:text="@string/home_txt_1"
+                android:id="@+id/textView6" />
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-
 
             android:id="@+id/home_bar_layout"
             >
@@ -50,14 +96,25 @@
                 android:id="@+id/button2"
                 android:layout_gravity="center_horizontal"
                 style="@style/homeBT"
-                android:src="@drawable/home_about_bt" />
+                android:src="@drawable/home_about_bt"
+
+                android:onClick="go_to_about"
+
+
+                />
 
 
             <ImageButton
                 android:src="@drawable/home_newacount_bt"
                 android:id="@+id/button3"
                 android:layout_gravity="right"
-                style="@style/homeBT"/>
+                style="@style/homeBT"
+
+                android:onClick="goto_new_user"
+
+
+
+                />
 
             <ImageButton
                 android:src="@drawable/home_login_bt"
@@ -65,12 +122,14 @@
                 style="@style/homeBT"
                 android:onClick="show_login"
 
+
                 />
         </LinearLayout>
 
         <RelativeLayout
-            android:visibility="gone"
 
+
+            android:visibility="gone"
             android:layout_width="340dp"
             android:layout_height="match_parent"
             android:id="@+id/login_layout">
@@ -78,22 +137,33 @@
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:ems="10"
+                android:hint="@string/email"
                 android:id="@+id/login_email"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                style="@style/input_login"
+                android:layout_centerHorizontal="true"
+android:layout_marginTop="10dp"
+                android:textAlignment="center"
+
+                />
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
+
+                android:hint="@string/password"
+
                 android:id="@+id/login_password"
                 android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/login_email"
-                android:layout_alignStart="@+id/login_email" />
+                android:layout_alignStart="@+id/login_email"
+                style="@style/input_login"
+
+                android:textAlignment="center"
+
+                />
 
             <ImageButton
                 android:layout_width="30dp"

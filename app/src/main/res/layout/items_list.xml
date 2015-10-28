@@ -6,6 +6,9 @@
 
     <ImageView
         android:id="@+id/list_items_image"
+
+       android:src="@drawable/v"
+       android:background="@drawable/image_shape"
         style="@style/items_list_image" />
 
     <TextView

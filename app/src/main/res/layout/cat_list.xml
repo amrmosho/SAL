@@ -9,6 +9,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         style="@style/cat_list_image"
+        android:background="@drawable/image_shape"
         />
 
     <TextView

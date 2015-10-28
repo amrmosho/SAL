@@ -59,16 +59,35 @@
 
     <style name="label">
         <item name="android:textColor">#fff</item>
-        <item name="android:textAlignment">textEnd</item>
 
 
     </style>
+
+    <style name="textarea">
+        <item name="android:background">@drawable/textarea_shape</item>
+        <item name="android:textColor">#333</item>
+
+
+
+    </style>
+
+
 
     <style name="form_label" parent="label">
 
+
     </style>
+
     <style name="title" parent="label">
         <item name="android:layout_width">match_parent</item>
+
+
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+
+
+        <item name="android:textColor">@color/yallowButtonColor</item>
+
+
     </style>
     <style name="title_quiz" parent="title">
 
@@ -76,12 +95,28 @@
 
     <style name="input_text">
 
-        <item name="android:background">#fff</item>
+        <item name="android:textAlignment">center</item>
+
+
+
+    </style>
+    <style name="input_login">
+
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:layout_height">33dp</item>
+
 
 
     </style>
 
-    <style name="form_input_text" parent="input_text"></style>
+
+
+    <style name="form_input_text" parent="input_text">
+
+
+    </style>
 
     <!-- navBarStyle-->
     <style name="navbar">
@@ -122,9 +157,32 @@
     </style>
 
     <style name="button">
+        <item name="android:layout_marginTop">5dp</item>
+
         <item name="android:background">@drawable/button_shape</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_height">50dp</item>
 
     </style>
+
+
+
+    <style name="image_button"  parent="button" >
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/image_shape</item>
+        <item name="android:src">@drawable/image_icone</item>
+    </style>
+    <style name="video_button" parent="image_button"   >
+
+        <item name="android:src">@drawable/video_icone</item>
+    </style>
+
+
+
 
     <style name="navbar_send_button">
 
@@ -217,9 +275,16 @@
 
 
     <style name="main_data">
-        <item name="android:layout_marginTop">40dp</item>
 
-        <item name="android:padding">5dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+
+        <item name="android:paddingRight">10dp</item>
+
+        <item name="android:paddingLeft">10dp</item>
+
+        <item name="android:paddingBottom">10dp</item>
+
     </style>
 
 

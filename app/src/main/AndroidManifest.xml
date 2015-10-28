@@ -31,12 +31,14 @@
         <activity android:name=".sign_items_list" >
         </activity>
         <activity android:name=".quiz_cates" >
-
         </activity>
         <activity android:name=".quiz_itme" >
         </activity>
         <activity android:name=".home" >
-
+        </activity>
+        <activity android:name=".about" >
+        </activity>
+        <activity android:name=".new_user" >
         </activity>
     </application>
 

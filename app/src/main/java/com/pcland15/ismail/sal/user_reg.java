@@ -39,13 +39,13 @@ public class user_reg extends AppCompatActivity {
 
     public void userRegSend(View view) {
 
-
+        /// create database connection
         dbOperations o = new dbOperations("studentes", "insert");
 
 
 
-
-      if (email.getText().toString().equalsIgnoreCase("")){
+        /// check email valid
+      if (email.getText().toString().equalsIgnoreCase("")){ // if email empty
           email.setBackgroundColor(getResources().getColor(R.color.colorAccent));
           Toast t = Toast.makeText(this, "Empty", Toast.LENGTH_LONG);
           t.show();
@@ -57,8 +57,8 @@ public class user_reg extends AppCompatActivity {
       }
 
 
-
-        if (title.getText().toString().equalsIgnoreCase("")){
+        /// check name valid
+        if (title.getText().toString().equalsIgnoreCase("")){ // if empty
             title.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             Toast t = Toast.makeText(this, "Empty", Toast.LENGTH_LONG);
             t.show();
@@ -71,26 +71,32 @@ public class user_reg extends AppCompatActivity {
 
 
 
-
+        /// add data to database
         o.addData.put("email", email.getText().toString());
         o.addData.put("title", title.getText().toString());
         o.addData.put("password", password.getText().toString());
 
 
 
-
+        /// commit
         HashMap<String, HashMap<String, String>>a = o.commit();
-        if (a.get("log").get("opstauts").equalsIgnoreCase("true")) {
 
-            Toast t = Toast.makeText(this, "Done", Toast.LENGTH_LONG);
+
+
+
+
+        /// check db operation status
+        if (a.get("log").get("opstauts").equalsIgnoreCase("true")) { // opsstatus = success
+
+            Toast t = Toast.makeText(this, this.getString(R.string.back), Toast.LENGTH_LONG);
             t.show();
             email.setText("");
             title.setText("");
             password.setText("");
 
-        } else {
+        } else { // failed return message
 
-            Toast t = Toast.makeText(this, "Error", Toast.LENGTH_LONG);
+            Toast t = Toast.makeText(this, this.getString(R.string.back), Toast.LENGTH_LONG);
             t.show();
 
         }

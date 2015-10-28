@@ -22,9 +22,16 @@
 
     <string name="user_reg">حساب جديد </string>
     <string name="sign_categories">تصنيفات الاشارات  </string>
-<string name="newsign_name">الاسم:</string>
-<string name="newsign_cat">التصنيف:</string>
-<string name="newsign_desc">الوصف:</string>
+    <string name="newsign_name">الاسم:</string>
+    <string name="newsign_cat">التصنيف:</string>
+    <string name="newsign_desc">الوصف:</string>
+    <string name="newsign_title">اشارة جديدة</string>
+    <string name="newsign_button1"></string>
+    <string name="newsign_button2"></string>
+    <string name="newsign_button3"></string>
+
+    <string name="newcat_title">تصنيف جديد</string>
+
     <string name="sign">أشارة</string>
 
     <string name="signs">الاشارات </string>
@@ -45,4 +52,5 @@
     <string name="repassword">أعادة كلمة السر</string>
     <string name="new_user_password_not_msg">عفوا ولكن كلمة السر  وإعداة كلمة السر غير متطابقه</string>
     <string name="new_user_empty_msg">عفو! ولكن هناك حقل مطلب فارغ</string>
+    <string name="desc">Image button</string>
 </resources>

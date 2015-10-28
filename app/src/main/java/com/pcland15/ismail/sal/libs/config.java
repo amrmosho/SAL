@@ -5,9 +5,10 @@ package com.pcland15.ismail.sal.libs;
  */
 public class config {
 
-    public  static  String  webServiecURL="http://sign.decorplanner.com/webserves/";
-    public  static  String  imagePath="http://sign.decorplanner.com/upload/";
+    public  static  String  webServiecURL="http://192.168.1.103/sign/webserves/";
+    public  static  String  imagePath="http://192.168.1.103/sign/upload/";
 
+    public  static  String  vidoePath="http://192.168.1.103/sign/upload/";
 
 
 

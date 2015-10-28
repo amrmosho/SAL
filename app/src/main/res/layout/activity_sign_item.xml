@@ -39,7 +39,6 @@
         style="@style/main_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav_bar"
         android:layout_below="@+id/topbar">
 
 
@@ -48,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="@style/title"
             android:layout_alignParentTop="true" />
 
         <TabHost
@@ -64,12 +63,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/shape"
                 android:orientation="vertical">
 
                 <TabWidget
                     android:id="@android:id/tabs"
                     android:layout_width="match_parent"
+
+
                     android:layout_height="wrap_content"></TabWidget>
 
                 <FrameLayout
@@ -87,7 +88,6 @@
                             android:id="@+id/sign_item_vido"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            style="@style/main_image"
                            />
 
                     </LinearLayout>
@@ -99,11 +99,13 @@
                         android:orientation="vertical">
 
                         <ImageView
+                            android:background="@drawable/image_shape"
                             android:id="@+id/sign_item_image"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             style="@style/main_image"
-                            android:background="@drawable/abc_btn_radio_to_on_mtrl_000" />
+
+                            />
 
                     </LinearLayout>
 
@@ -126,16 +128,15 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="Medium Text"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+              style="@style/textarea"
+android:layout_marginTop="5dp"
+
+                />
         </RelativeLayout>
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/bottom_nav_bar"
-        style="@style/navbarbottom"
-        android:layout_width="match_parent">
 
-    </RelativeLayout>
 
 </RelativeLayout>

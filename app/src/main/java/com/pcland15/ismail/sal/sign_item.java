@@ -11,6 +11,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.pcland15.ismail.sal.libs.config;
 import com.pcland15.ismail.sal.libs.dbOperations;
 import com.pcland15.ismail.sal.libs.ui;
 
@@ -52,6 +53,7 @@ public class sign_item extends AppCompatActivity {
         tabHost.addTab(tabimage);
 
 
+
        getData();
 
     }
@@ -73,7 +75,7 @@ public class sign_item extends AppCompatActivity {
         t.setText(data.get("name"));
 
 
-        String vidAddress = "https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
+        String vidAddress = config.vidoePath + data.get("video"); //"https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
         Uri vidUri = Uri.parse(vidAddress);
         VideoView v = (VideoView) findViewById(R.id.sign_item_vido);
 

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
+import com.pcland15.ismail.sal.libs.dbOperations;
 import com.pcland15.ismail.sal.libs.ui;
 
 public class home extends AppCompatActivity {
@@ -15,7 +15,9 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-      //  ui.applyFont(this,(TextView)findViewById(R.id.home_title));
+        TextView  home_name_title= (TextView)findViewById(R.id.home_name_title);
+        home_name_title.setText(dbOperations.userData.get("title"));
+
     }
 
     public void gotoSigns(View view) {

@@ -40,6 +40,8 @@
         </activity>
         <activity android:name=".new_user" >
         </activity>
+        <activity android:name=".panel" >
+        </activity>
     </application>
 
 </manifest>

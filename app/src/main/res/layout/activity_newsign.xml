@@ -54,7 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/navbar">
 
 
         <EditText
@@ -78,9 +79,9 @@
             android:hint="@string/newsign_desc" />
 
 
-        <Button
+        <ImageButton
             android:id="@+id/imageButton"
-            style="@style/button"
+            style="@style/image_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_column="0"
@@ -90,9 +91,9 @@
             android:contentDescription="@string/desc"
             android:text="@string/newsign_button1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/imageButton3"
-            style="@style/button"
+            style="@style/video_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_column="1"
@@ -114,7 +115,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/desc"
-            android:text="@string/newsign_button3" />
+            android:text="@string/send" />
 
     </LinearLayout>
 

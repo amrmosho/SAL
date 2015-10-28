@@ -53,4 +53,12 @@
     <string name="new_user_password_not_msg">عفوا ولكن كلمة السر  وإعداة كلمة السر غير متطابقه</string>
     <string name="new_user_empty_msg">عفو! ولكن هناك حقل مطلب فارغ</string>
     <string name="desc">Image button</string>
+
+
+    <string name="addquiz_title">اضف اختبار</string>
+    <string name="addquiz_q">السؤال</string>
+    <string name="addquiz_a1">الاجابة 1</string>
+    <string name="addquiz_a2">الاجابة 2</string>
+    <string name="addquiz_a3">الاجابة 3</string>
+    <string name="addquiz_a4">الاجابة 4</string>
 </resources>

@@ -49,6 +49,12 @@
     </RelativeLayout>
 
 
+    <RelativeLayout
+        style="@style/main_data"
+
+       >
+
+
     <LinearLayout
         android:id="@+id/insert_bts"
         android:layout_width="match_parent"
@@ -58,65 +64,58 @@
         android:layout_below="@+id/navbar">
 
 
-        <EditText
-            android:id="@+id/newsign_name_input"
-            style="@style/form_input_text"
-            android:hint="@string/newsign_name"/>
-
-
-
-        <EditText
-            android:id="@+id/newsign_category_input"
-            style="@style/form_input_text"
-            android:hint="@string/newsign_cat" />
-
-
-        <EditText
-            android:id="@+id/newsign_desc_input"
-            style="@style/form_input_text"
-
-
-            android:hint="@string/newsign_desc" />
-
-
         <ImageButton
             android:id="@+id/imageButton"
             style="@style/image_button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_column="0"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="3dp"
             android:contentDescription="@string/desc"
-            android:text="@string/newsign_button1" />
+         />
 
         <ImageButton
             android:id="@+id/imageButton3"
             style="@style/video_button"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_column="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
             android:contentDescription="@string/desc"
-            android:text="@string/newsign_button2" />
+           />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="199dp"
+            style="@style/textarea"
+
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <EditText
+                android:id="@+id/newsign_name_input"
+                style="@style/form_input_text"
+                android:hint="@string/newsign_name"/>
+
+            <EditText
+                android:id="@+id/newsign_category_input"
+                style="@style/form_input_text"
+                android:hint="@string/newsign_cat" />
+
+            <EditText
+                android:id="@+id/newsign_desc_input"
+                style="@style/form_input_text"
+
+
+                android:hint="@string/newsign_desc" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/imageButton4"
             style="@style/button"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_below="@id/from"
-            android:layout_column="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
             android:contentDescription="@string/desc"
-            android:text="@string/send" />
+            android:text="@string/send"
+            android:layout_gravity="center_horizontal" />
+
 
     </LinearLayout>
-
+    </RelativeLayout>
 </RelativeLayout>

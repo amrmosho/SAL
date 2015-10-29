@@ -20,6 +20,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp">
 
+
         <ImageButton
             android:id="@+id/button4"
             style="@style/navbar_back_button"
@@ -47,6 +48,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
 
             />
+
     </RelativeLayout>
 
     <LinearLayout
@@ -58,23 +60,129 @@
         android:layout_marginTop="50dp">
 
 
-        <Button
-            style="@style/button"
-            android:hint="@string/panel_sign"
-            android:id="@+id/button9"
-            android:layout_gravity="center_horizontal" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/signs"
+            android:id="@+id/textView5"
+
+
+            />
+
+        <LinearLayout
+            style="@style/textarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+           >
         <Button
             style="@style/button"
             android:hint="@string/panel_cat"
             android:id="@+id/button10"
-            android:layout_gravity="center_horizontal" />
+
+            android:onClick="goto_signCats"
+            />
 
         <Button
             style="@style/button"
-            android:hint="@string/panel_quiz"
-            android:id="@+id/button11"
-            android:layout_gravity="center_horizontal" />
+            android:hint="@string/panel_sign"
+            android:id="@+id/button9"
+            android:layout_gravity="center_horizontal"
+
+            android:onClick="goto_sign"
+
+
+            />
+        </LinearLayout>
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/panel_quiz"
+            android:id="@+id/textView51"
+
+
+            />
+
+        <LinearLayout
+            style="@style/textarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <Button
+                style="@style/button"
+                android:hint="@string/addquiz_q"
+                android:id="@+id/button13"
+
+                android:onClick="goto_quiz_Q"
+
+                />
+
+            <Button
+                style="@style/button"
+                android:hint="@string/addquiz_a"
+                android:id="@+id/button12"
+                android:onClick="goto_quiz_A"
+                android:layout_gravity="center_horizontal" />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/users"
+            android:id="@+id/textView513"
+
+
+            />
+
+        <LinearLayout
+            style="@style/textarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+
+
+            >
+            <Button
+                style="@style/button"
+                android:hint="@string/panel_cat"
+                android:id="@+id/button133"
+
+                android:onClick="goto_user_Cats"
+
+                />
+
+            <Button
+                style="@style/button"
+                android:hint="@string/add_user"
+                android:id="@+id/button123"
+
+                android:onClick="goto_user"
+                android:layout_gravity="center_horizontal" />
+
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </RelativeLayout>

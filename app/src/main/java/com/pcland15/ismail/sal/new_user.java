@@ -21,10 +21,6 @@ public class new_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
 
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
 
         repassword = (TextView) findViewById(R.id.new_uesr_repassword);
         email = (TextView) findViewById(R.id.new_uesr_email);

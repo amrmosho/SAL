@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.pcland15.ismail.sal.add_newsign">
+
+    <RelativeLayout
+        style="@style/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp">
+
+        <ImageButton
+            android:id="@+id/button4"
+            style="@style/navbar_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="goBack"
+
+            android:text="@string/back" />
+
+
+        <ImageButton
+            android:id="@+id/button5"
+            style="@style/navbar_send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:onClick="userRegSend"
+
+            android:text="@string/send" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/navbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/newsign_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        style="@style/main_data"
+
+        >
+
+
+        <LinearLayout
+            android:id="@+id/insert_bts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/navbar">
+
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@style/image_button"
+                android:contentDescription="@string/desc"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                style="@style/video_button"
+                android:layout_width="match_parent"
+                android:contentDescription="@string/desc"
+                />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="199dp"
+                style="@style/textarea"
+
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                >
+
+                <EditText
+                    android:id="@+id/newsign_name_input"
+                    style="@style/form_input_text"
+                    android:hint="@string/newsign_name"/>
+
+                <EditText
+                    android:id="@+id/newsign_category_input"
+                    style="@style/form_input_text"
+                    android:hint="@string/newsign_cat" />
+
+                <EditText
+                    android:id="@+id/newsign_desc_input"
+                    style="@style/form_input_text"
+
+
+                    android:hint="@string/newsign_desc" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/imageButton4"
+                style="@style/button"
+                android:contentDescription="@string/desc"
+                android:text="@string/send"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

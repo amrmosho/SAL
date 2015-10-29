@@ -55,7 +55,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <EditText
+            <ImageButton
+                android:id="@+id/addImage"
+                style="@style/image_button"
+                android:text="@string/image"
+
+                />
+
+            <LinearLayout
+
+            style="@style/textarea"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:orientation="vertical">
+
+
+        <EditText
                 android:id="@+id/new_uesr_name"
                 style="@style/form_input_text"
                 android:layout_width="match_parent"
@@ -96,13 +111,7 @@
                 android:inputType="textPassword"
 
                 />
-
-            <ImageButton
-                android:id="@+id/addImage"
-                style="@style/image_button"
-                android:text="@string/image"
-
-                />
+        </LinearLayout>
 
             <Button
                 android:id="@+id/button8"

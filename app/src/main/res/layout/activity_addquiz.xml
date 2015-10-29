@@ -103,7 +103,6 @@
             style="@style/button"
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_below="@id/from"
             android:layout_column="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

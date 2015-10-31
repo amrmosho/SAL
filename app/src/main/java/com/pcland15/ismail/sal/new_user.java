@@ -80,13 +80,39 @@ public class new_user extends AppCompatActivity {
         } else {
             titleTxt += " " + this.getString(R.string.add_user);
             catTable = xmlDataModel.userCatTable;
-            catTable = xmlDataModel.userTable;
+            table = xmlDataModel.userTable;
         }
 
     }
 
 
-    public void userRegSend(View view) {
+
+
+    //<editor-fold desc="image_bt">
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        o.addImageData.put("image", u.getImage(resultCode, (ImageView) findViewById(R.id.new_userButtonImageView), data));
+
+    }
+
+    public void select_image(View view) {
+        u.getImage(this);
+    }
+    //</editor-fold>
+
+    public void goBack(View view) {
+        this.finish();
+    }
+
+    public void goList(View view) {
+        Intent t = new Intent(this, act_list.class);
+        t.putExtra("status", this.status);
+        startActivity(t);
+    }
+
+    public void naw_userRegSend(View view) {
+
         if (email.getText().toString().equalsIgnoreCase("")) {
             email.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             Toast t = Toast.makeText(this, this.getString(R.string.new_user_empty_msg), Toast.LENGTH_LONG);
@@ -118,7 +144,7 @@ public class new_user extends AppCompatActivity {
         }
 
 
-        if (password.getText().toString().equals(repassword.getText().toString())) {
+        if (!password.getText().toString().equals(repassword.getText().toString())) {
             Toast t = Toast.makeText(this, this.getString(R.string.new_user_password_not_msg), Toast.LENGTH_LONG);
             t.show();
             return;
@@ -143,28 +169,5 @@ public class new_user extends AppCompatActivity {
         }
 
 
-    }
-
-    //<editor-fold desc="image_bt">
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        o.addImageData.put("image", u.getImage(resultCode, (ImageView) findViewById(R.id.new_userButtonImageView), data));
-
-    }
-
-    public void select_image(View view) {
-        u.getImage(this);
-    }
-    //</editor-fold>
-
-    public void goBack(View view) {
-        this.finish();
-    }
-
-    public void goList(View view) {
-        Intent t = new Intent(this, act_list.class);
-        t.putExtra("status", this.status);
-        startActivity(t);
     }
 }

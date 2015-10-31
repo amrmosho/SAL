@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.support.v4.content.CursorLoader;
 
 import com.pcland15.ismail.sal.R;
+
 import android.database.Cursor;
 
 import java.io.FileNotFoundException;
@@ -32,13 +33,14 @@ import java.util.List;
 /**
  * Created by ismail on 10/22/2015.
  */
-public class ui  {
+public class ui {
 
     Activity activity;
 
-   public  ui(Activity activity){
-        this.activity=activity;
+    public ui(Activity activity) {
+        this.activity = activity;
     }
+
     public static void loadImage(Context context, ImageView i, String name) {
 
 
@@ -75,29 +77,29 @@ public class ui  {
     }
 
 
-   public  void getImage(final Context context) {
+    public void getImage(final Context context) {
 
-        final CharSequence[] options = {context.getString(R.string.ChoosefromGallery),context.getString(R.string.cancel)};
+        final CharSequence[] options = {context.getString(R.string.ChoosefromGallery), context.getString(R.string.cancel)};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle( context.getString(R.string.AddPhoto));
+        builder.setTitle(context.getString(R.string.AddPhoto));
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-               if (options[item].equals(context.getString(R.string.ChoosefromGallery))) {
+                if (options[item].equals(context.getString(R.string.ChoosefromGallery))) {
                     Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                   activity.startActivityForResult(intent, 2);
+                    activity.startActivityForResult(intent, 2);
 
                 } else if (options[item].equals(context.getString(R.string.cancel))) {
                     dialog.dismiss();
                 }
             }
         });
-       builder.show();
+        builder.show();
     }
 
 
-    public List<simpleList> fillSpinner (Spinner newuser_sp_cat,String table  ){
+    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table) {
 
 
         final List<simpleList> mydata = new ArrayList<>();
@@ -114,44 +116,43 @@ public class ui  {
             }
 
         }
-        spinnerAdapter dataAdapter = new   spinnerAdapter(activity, 0, mydata);
+        spinnerAdapter dataAdapter = new spinnerAdapter(activity, 0, mydata);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         newuser_sp_cat.setAdapter(dataAdapter);
 
-return mydata;
+        return mydata;
 
     }
-  public    String getImage(int resultCode, ImageView viewImage, Intent data) {
-      Bitmap yourSelectedImage =null;
-       String path="";
+
+    public String getImage(int resultCode, ImageView viewImage, Intent data) {
+        Bitmap yourSelectedImage = null;
+        String path = "";
         if (resultCode == activity.RESULT_OK) {
 
 
             Uri selectedImage = data.getData();
-            path=getRealPathFromURI(activity,selectedImage);
+            path = getRealPathFromURI(activity, selectedImage);
             InputStream imageStream = null;
 
-          //  path= getRealPathFromURI(activity,data.getData());
+            //  path= getRealPathFromURI(activity,data.getData());
             try {
                 imageStream = activity.getContentResolver().openInputStream(selectedImage);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-             yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+            yourSelectedImage = BitmapFactory.decodeStream(imageStream);
             viewImage.setImageBitmap(yourSelectedImage);
         }
 
-      return path;
+        return path;
     }
-
-
 
 
     public String getRealPathFromURI(Context context, Uri contentUri) {
         Cursor cursor = null;
         try {
-            String[] proj = { MediaStore.Images.Media.DATA };
-            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
             return cursor.getString(column_index);

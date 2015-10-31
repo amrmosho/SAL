@@ -130,4 +130,9 @@ public class user_cat extends AppCompatActivity {
 
     }
 
+
+    public void goback(View view) {
+        this.finish();
+
+    }
 }

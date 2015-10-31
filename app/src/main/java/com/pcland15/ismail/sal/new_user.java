@@ -77,6 +77,22 @@ public class new_user extends AppCompatActivity {
             titleTxt += " " + this.getString(R.string.sign);
             catTable = xmlDataModel.signCatTable;
             table = xmlDataModel.signTable;
+
+        } else if (status.equalsIgnoreCase("quiz_q")) {
+            titleTxt += " " + this.getString(R.string.sign);
+            catTable = xmlDataModel.quizCatTable;
+            table = xmlDataModel.quiz_questions;
+
+
+        } else if (status.equalsIgnoreCase("quiz_a")) {
+            titleTxt += " " + this.getString(R.string.sign);
+            catTable = xmlDataModel.quiz_questions;
+            table = xmlDataModel.quizAnswersTable;
+
+
+
+
+
         } else {
             titleTxt += " " + this.getString(R.string.add_user);
             catTable = xmlDataModel.userCatTable;

@@ -119,8 +119,8 @@
             >
             <Button
                 style="@style/button"
-                android:hint="@string/addquiz_q"
                 android:id="@+id/button13"
+                android:hint="@string/panel_cat"
 
                 android:onClick="goto_quiz_cat"
 
@@ -128,12 +128,17 @@
 
             <Button
                 style="@style/button"
-                android:hint="@string/addquiz_a"
+                android:hint="@string/addquiz_q"
                 android:id="@+id/button12"
-                android:onClick="goto_quiz_A"
+                android:onClick="goto_quiz_Q"
                 android:layout_gravity="center_horizontal" />
 
-
+            <Button
+                style="@style/button"
+                android:hint="@string/addquiz_a"
+                android:id="@+id/button13d"
+                android:onClick="goto_quiz_A"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 
@@ -175,7 +180,7 @@
                 android:hint="@string/add_user"
                 android:id="@+id/button123"
 
-                android:onClick="goto_user_Cats"
+                android:onClick="goto_user"
                 android:layout_gravity="center_horizontal" />
 
 

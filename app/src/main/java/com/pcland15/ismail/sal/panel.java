@@ -20,28 +20,30 @@ public class panel extends AppCompatActivity {
 
     }
 
-    public void goto_signCats(View view) {
 
-
-    }
 
     public void goto_sign(View view) {
-        Intent t = new Intent(this, add_newsign.class);
+        Intent t = new Intent(this, new_user.class);
+        t.putExtra("status","sign");
         startActivity(t);
     }
 
     public void goto_quiz_Q(View view) {
-        Intent t = new Intent(this, sign_categories.class);
+        Intent t = new Intent(this, new_user.class);
+        t.putExtra("status","quiz_q");
         startActivity(t);
     }
 
     public void goto_quiz_A(View view) {
-        Intent t = new Intent(this, sign_categories.class);
+        Intent t = new Intent(this, new_user.class);
+        t.putExtra("status","quiz_a");
         startActivity(t);
     }
 
+
     public void goto_user(View view) {
-        Intent t = new Intent(this, sign_categories.class);
+        Intent t = new Intent(this, new_user.class);
+        t.putExtra("status","user");
         startActivity(t);
     }
 
@@ -62,5 +64,9 @@ public class panel extends AppCompatActivity {
         Intent t = new Intent(this, user_cat.class);
         t.putExtra("status","quiz");
         startActivity(t);
+    }
+    public void goback(View view) {
+
+        this.finish();
     }
 }

@@ -74,6 +74,9 @@
     <string name="newcat_name">الاسم</string>
     <string name="users">الاعضاء</string>
     <string name="add_user">أضافة  عضو</string>
+    <string name="ChoosefromGallery">أختر من المعرض</string>
+    <string name="cancel">ألغاء</string>
+    <string name="AddPhoto">أضافه صورة</string>
 
 
 </resources>

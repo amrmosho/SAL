@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.login_email);
         password = (EditText) findViewById(R.id.login_password);
 
+        email.setText("empcland@gmail.com");
+password.setText("3mrmosho");
 
     }
 
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goto_new_user(View view) {
         Intent t = new Intent(this, new_user.class);
+        t.putExtra("status","user");
         startActivity(t);
     }
 

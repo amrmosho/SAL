@@ -49,69 +49,95 @@
 
         >
 
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/addImage"
-                style="@style/image_button"
-                android:text="@string/image"
-
-                />
-
-            <LinearLayout
+            android:id="@+id/imagearea"
 
             style="@style/textarea"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="170dp"
             android:orientation="vertical">
 
 
-        <EditText
-                android:id="@+id/new_uesr_name"
-                style="@style/form_input_text"
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@style/image_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:onClick="select_image" />
+
+            <ImageView
+                android:id="@+id/new_userButtonImageView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
-                android:ems="10"
-
-                android:hint="@string/name"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/new_uesr_email"
-                style="@style/form_input_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:hint="@string/email"
-                android:inputType="textEmailAddress" />
-
-            <EditText
-                android:id="@+id/new_uesr_password"
-                style="@style/form_input_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
-
-
-            <EditText
-                android:id="@+id/new_uesr_repassword"
-                style="@style/form_input_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/repassword"
-                android:inputType="textPassword"
-
-                />
+                android:scaleType="fitCenter" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/imagearea"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+
+            <LinearLayout
+                style="@style/textarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/new_uesr_name"
+                    style="@style/form_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+
+                    android:hint="@string/name"
+                    android:inputType="textPersonName" />
+
+                <Spinner
+                    android:id="@+id/newuser_sp_cat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/new_uesr_email"
+                    style="@style/form_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:id="@+id/new_uesr_password"
+                    style="@style/form_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+
+
+                <EditText
+                    android:id="@+id/new_uesr_repassword"
+                    style="@style/form_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/repassword"
+                    android:inputType="textPassword"
+
+                    />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/button8"

@@ -105,6 +105,7 @@ public class sign_categories extends AppCompatActivity {
         });
     }
 
+
     void viewItemsList(String id) {
 
         Intent t = new Intent(this, sign_items_list.class);

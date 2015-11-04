@@ -34,6 +34,9 @@ import java.util.Iterator;
  * Created by empcl_000 on 19/10/2015.
  */
 public class dbOperations {
+
+
+
     public String table = "";
     public String type = "";
     public String where = "";
@@ -46,7 +49,6 @@ public class dbOperations {
         this.table = table;
         this.type = type;
         this.addData = new HashMap<>();
-
         this.addImageData = new HashMap<>();
 
     }
@@ -55,17 +57,10 @@ public class dbOperations {
         return getFromserver();
     }
 
-
     MultipartEntity geturldata() {
 
         MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-/*
-        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-        nameValuePairs.add(new BasicNameValuePair("table", this.table));
-        nameValuePairs.add(new BasicNameValuePair("set", this.type));
-        nameValuePairs.add(new BasicNameValuePair("where", this.where));
 
-        */
 
         try {
 
@@ -87,6 +82,8 @@ public class dbOperations {
                 for (String k : this.addImageData.keySet()) {
 
                     File f = new File(this.addImageData.get(k));
+
+
                     entity.addPart(k, new FileBody(f));
 
                 }
@@ -96,12 +93,9 @@ public class dbOperations {
         } catch (UnsupportedEncodingException e) {
 
 
-            e.printStackTrace();
         } catch (Exception e) {
 
-            String a = e.getMessage();
 
-            a = a;
         }
         return entity;
     }
@@ -109,8 +103,6 @@ public class dbOperations {
 
     public HashMap<String, HashMap<String, String>> getFromserver() {
 
-
-        // String URL = config.webServiecURL;
         StringBuilder stringBuilder = new StringBuilder();
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(config.webServiecURL);
@@ -142,8 +134,6 @@ public class dbOperations {
         }
         String c = stringBuilder.toString();
 
-//[{"id":"1","title":"\u0627\u0644\u062d\u0631\u0648\u0641 \u0627\u0644\u0627\u0628\u062c\u062f\u064a\u0647","image":"5628cf739d5ff.jpg","des":"sdfsdfsdf\r\nsd\r\nfsd\r\nfsd\r\nfs\r\ndf","enabled":"0"}
-// ,{"id":"2","title":"\u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a","image":"5628cf84e5d66.jpg","des":"\u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a \u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a \u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a \u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u0648\u0635\u0644\u0627\u062a","enabled":"0"},{"id":"3","title":"\u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647","image":"5628cf521309c.jpg","des":"\u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647 \u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647 \u0641\u0649 \u0627\u0644\u0645\u062f\u0631\u0633\u0647","enabled":"0"}]
         return this.jsonStringToArray(c);
     }
 
@@ -171,8 +161,6 @@ public class dbOperations {
 
         } catch (JSONException e) {
 
-            String aaaaaa = e.getMessage();
-            Log.d("readJSONFeed", e.getLocalizedMessage());
         }
         return r;
     }
@@ -191,8 +179,7 @@ public class dbOperations {
 
         } catch (JSONException e) {
 
-            String aaaaaa = e.getMessage();
-            Log.d("readJSONFeed", e.getLocalizedMessage());
+
         }
 
 

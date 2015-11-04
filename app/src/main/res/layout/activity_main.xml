@@ -3,202 +3,191 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-
     android:theme="@style/signtheme"
+
+    tools:context=".MainActivity"
 
     >
 
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
         android:layout_gravity="center_horizontal|bottom"
         android:src="@drawable/home_img" />
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/randomViewInMainLayout"
         android:layout_width="wrap_content"
         android:layout_height="161dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:orientation="vertical">
 
-
-        android:id="@+id/randomViewInMainLayout"
-        android:layout_gravity="center_horizontal|bottom">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="برنامج تعليم لغه الاشارة "
             android:id="@+id/textView"
             style="@style/hometTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-android:textSize="25dp"
+            android:text="برنامج تعليم لغه الاشارة "
+
+
+            android:textSize="25dp"
+
+
             />
 
+
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/home_txt_layout"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:id="@+id/home_txt_layout"
+            android:orientation="horizontal"
 
-
+            android:visibility="gone"
             >
 
+
             <TextView
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/home_txt_3"
                 android:id="@+id/textView4"
-                android:paddingTop="10dp"
-
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                />
+                style="@style/home_comment_text"
+                android:text="@string/home_txt_3"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/home_txt_1"
+                style="@style/home_comment_text"
                 android:text="@string/home_txt_2"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-
-                android:paddingTop="10dp"
-                android:id="@+id/home_txt_1" />
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-
-                android:paddingTop="10dp"
-
+                android:id="@+id/textView6"
+                style="@style/home_comment_text"
                 android:text="@string/home_txt_1"
-                android:id="@+id/textView6" />
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
         </LinearLayout>
 
+
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/home_bar_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-
-            android:id="@+id/home_bar_layout"
-            >
+            android:visibility="gone"
+            android:orientation="horizontal">
 
             <ImageButton
-
 
                 android:id="@+id/button2"
+                style="@style/homeBT"
                 android:layout_gravity="center_horizontal"
-                style="@style/homeBT"
-                android:src="@drawable/home_about_bt"
-
                 android:onClick="go_to_about"
-
-
+                android:src="@drawable/home_about_bt"
                 />
 
 
             <ImageButton
-                android:src="@drawable/home_newacount_bt"
                 android:id="@+id/button3"
-                android:layout_gravity="right"
                 style="@style/homeBT"
-
+                android:layout_gravity="right"
                 android:onClick="goto_new_user"
-
+                android:src="@drawable/home_newacount_bt"
 
 
                 />
 
             <ImageButton
-                android:src="@drawable/home_login_bt"
                 android:id="@+id/button"
                 style="@style/homeBT"
                 android:onClick="show_login"
+                android:src="@drawable/home_login_bt"
 
 
                 />
+
+
         </LinearLayout>
+
+
+
+
 
         <RelativeLayout
 
 
-            android:visibility="gone"
+            android:id="@+id/login_layout"
             android:layout_width="340dp"
             android:layout_height="match_parent"
-            android:id="@+id/login_layout">
+            android:visibility="visible">
 
 
             <EditText
-                android:layout_width="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email"
                 android:id="@+id/login_email"
-                android:layout_alignParentTop="true"
                 style="@style/input_login"
+                android:layout_width="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-android:layout_marginTop="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
                 android:textAlignment="center"
 
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
-
-                android:hint="@string/password"
-
                 android:id="@+id/login_password"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/login_email"
-                android:layout_alignStart="@+id/login_email"
                 style="@style/input_login"
+                android:layout_width="wrap_content"
+
+                android:layout_alignLeft="@+id/login_email"
+
+                android:layout_alignStart="@+id/login_email"
+                android:layout_centerVertical="true"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
 
                 android:textAlignment="center"
 
                 />
 
             <ImageButton
+                android:id="@+id/button6"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="New Button"
-                android:id="@+id/button6"
-                android:src="@drawable/close_black"
-                android:scaleType="fitCenter"
-                android:background="@null"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-
-
+                android:layout_alignParentTop="true"
+                android:background="@null"
                 android:onClick="hide_login"
-                />
+                android:scaleType="fitCenter"
+                android:src="@drawable/close_black"
+
+
+                android:text="New Button" />
 
             <Button
 
+                android:id="@+id/button7"
+                style="@style/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/login"
-                android:id="@+id/button7"
-                android:layout_below="@+id/login_password"
-                android:layout_alignLeft="@+id/login_password"
-                android:layout_alignStart="@+id/login_password"
-
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/login_password"
                 android:layout_alignEnd="@+id/login_password"
-                android:onClick="login"
+                android:layout_alignLeft="@+id/login_password"
+                android:layout_alignParentBottom="true"
 
-style="@style/button"
+                android:layout_alignRight="@+id/login_password"
+                android:layout_alignStart="@+id/login_password"
+                android:layout_below="@+id/login_password"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp" />
+
+                android:layout_marginTop="10dp"
+                android:onClick="login"
+                android:text="@string/login" />
         </RelativeLayout>
 
 

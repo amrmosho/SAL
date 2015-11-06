@@ -11,4 +11,7 @@ public class xmlDataModel {
     public final static String quizAnswersTable = "answers ";
     public final static String signTable = "sign";
     public final static String signCatTable = "sign_categries";
+    public static  String booksCatTable="books_categries";
+    public static  String booksTable="books";
+
 }

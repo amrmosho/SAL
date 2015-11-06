@@ -162,5 +162,17 @@ public class ui {
             }
         }
     }
+
+
+/*
+    Bitmap drawable_from_url(String url) throws java.net.MalformedURLException, java.io.IOException {
+        Bitmap x;
+        HttpURLConnection connection = (HttpURLConnection)new URL(url) .openConnection();
+        connection.setRequestProperty("User-agent","Mozilla/4.0");
+        connection.connect();
+        InputStream input = connection.getInputStream();
+        x = BitmapFactory.decodeStream(input);
+        return x;
+    }*/
 }
 

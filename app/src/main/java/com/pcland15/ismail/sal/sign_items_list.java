@@ -12,12 +12,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pcland15.ismail.sal.libs.cat_list;
 import com.pcland15.ismail.sal.libs.dbOperations;
+import com.pcland15.ismail.sal.libs.xmlDataModel;
 
 import java.io.Console;
 import java.util.ArrayList;
@@ -44,12 +46,28 @@ public class sign_items_list extends AppCompatActivity {
 
         }
         catID = getIntent().getStringExtra("id");
-
+        table = getIntent().getStringExtra("status");
+        steData();
         getData();
-
         serach();
     }
 
+
+    TextView itemTtile;
+    String table = "";
+    String cattable = "";
+    void steData() {
+        itemTtile = (TextView) findViewById(R.id.item_title);
+        if (table.equalsIgnoreCase(xmlDataModel.booksTable)) {
+            cattable = xmlDataModel.booksCatTable;
+            itemTtile.setText(this.getString(R.string.books));
+        } else {
+            itemTtile.setText(this.getString(R.string.signs));
+            cattable = xmlDataModel.signCatTable;
+
+        }
+
+    }
 
     void serach() {
         final EditText editsearch = (EditText) findViewById(R.id.serchin);
@@ -91,13 +109,13 @@ public class sign_items_list extends AppCompatActivity {
         TextView t = (TextView) findViewById(R.id.sign_items_title);
 
 
-        dbOperations catdb = new dbOperations("sign_categries", "get_data");
+        dbOperations catdb = new dbOperations(cattable, "get_data");
         catdb.where = "id=" + this.catID;
         HashMap<String, String> catdata = catdb.commit().get("0");
         t.setText(catdata.get("title"));
 
 
-        dbOperations db = new dbOperations("sign", "get_data");
+        dbOperations db = new dbOperations(table, "get_data");
         db.where = "cat_id=" + this.catID;
         HashMap<String, HashMap<String, String>> data = db.commit();
 
@@ -133,7 +151,20 @@ public class sign_items_list extends AppCompatActivity {
 
     void viewItemsList(String id) {
 
-        Intent t = new Intent(this, sign_item.class);
+
+        Intent t =null;
+
+
+
+            if (table.equalsIgnoreCase(xmlDataModel.booksTable)) {
+                t = new Intent(this, books.class);
+
+            } else {
+                t = new Intent(this, sign_item.class);
+
+
+            }
+
         t.putExtra("id", id);
         startActivity(t);
     }

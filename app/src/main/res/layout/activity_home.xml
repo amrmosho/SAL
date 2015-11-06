@@ -71,8 +71,8 @@
         android:layout_width="match_parent"
 
         android:layout_below="@+id/imageButton"
-        android:onClick="gotoMySigns"
-        android:src="@drawable/home_bt_2"
+        android:onClick="gotoBooks"
+        android:src="@drawable/books_icon"
 
         />
 

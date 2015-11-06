@@ -24,7 +24,7 @@ import java.util.Locale;
 public class sign_categories extends AppCompatActivity {
 
     HashMap<String, HashMap<String, String>> dbdata;
-    listArrayAdapte adapter ;
+    listArrayAdapte adapter;
 
 
     @Override
@@ -35,14 +35,18 @@ public class sign_categories extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
+      //
         getData();
         serach();
+
+
     }
 
 
 
 
-    void serach (){
+    void serach() {
         final EditText editsearch = (EditText) findViewById(R.id.catserchin);
 
         final Context o = this;
@@ -95,8 +99,8 @@ public class sign_categories extends AppCompatActivity {
         final Context o = this;
 
         GridView l = (GridView) findViewById(R.id.sign_cat_List);
-        adapter=  new listArrayAdapte(this, 0, mydata);
-        l.setAdapter(adapter );
+        adapter = new listArrayAdapte(this, 0, mydata);
+        l.setAdapter(adapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

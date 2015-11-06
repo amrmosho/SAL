@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.pcland15.ismail.sal.libs.dbOperations;
 import com.pcland15.ismail.sal.libs.ui;
+import com.pcland15.ismail.sal.libs.xmlDataModel;
 
 public class home extends AppCompatActivity {
 
@@ -28,20 +29,19 @@ public class home extends AppCompatActivity {
     public void gotoSigns(View view) {
 
 
-        Intent t = new Intent(this, sign_categories.class);
-        startActivity(t);
-
-
-    }
-
-
-    public void gotoMySigns(View view) {
         Intent t = new Intent(this, quiz_cates.class);
+        t.putExtra("status", xmlDataModel.signCatTable);
         startActivity(t);
+
+
     }
+
+
 
     public void gotoQuizs(View view) {
         Intent t = new Intent(this, quiz_cates.class);
+        t.putExtra("status", xmlDataModel.quizCatTable);
+
         startActivity(t);
     }
 
@@ -52,5 +52,13 @@ public class home extends AppCompatActivity {
 
     public void goBack(View view) {
         this.finish();
+    }
+
+    public void gotoBooks(View view) {
+
+        Intent t = new Intent(this, quiz_cates.class);
+        t.putExtra("status", xmlDataModel.booksCatTable);
+        startActivity(t);
+
     }
 }

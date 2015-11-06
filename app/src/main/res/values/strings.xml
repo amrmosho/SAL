@@ -22,6 +22,10 @@
 
     <string name="user_reg">حساب جديد </string>
     <string name="sign_categories">تصنيفات الاشارات  </string>
+    <string name="books_categories"> تصنيفات الكتب </string>
+    <string name="quiz_categories"> تصنيفات الاختبارات  </string>
+
+
     <string name="newsign_name">الاسم:</string>
     <string name="newsign_cat">التصنيف:</string>
     <string name="newsign_desc">الوصف:</string>
@@ -77,6 +81,7 @@
     <string name="ChoosefromGallery">أختر من المعرض</string>
     <string name="cancel">ألغاء</string>
     <string name="AddPhoto">أضافه صورة</string>
+    <string name="books">الكتب</string>
 
 
 </resources>

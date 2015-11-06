@@ -97,6 +97,37 @@
             />
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/books"
+
+
+            />
+
+
+        <LinearLayout
+            style="@style/textarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <Button
+                style="@style/button"
+                android:hint="@string/panel_cat"
+
+                android:onClick="goto_booksCats"
+                />
+
+            <Button
+                style="@style/button"
+                android:hint="@string/add_book"
+                android:layout_gravity="center_horizontal"
+                android:onClick="goto_book"
+                />
+        </LinearLayout>
+
 
 
 

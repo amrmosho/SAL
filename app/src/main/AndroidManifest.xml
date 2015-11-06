@@ -18,13 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sign_categories" >
-        </activity>
         <activity android:name=".sign_item" >
         </activity>
         <activity android:name=".sign_items_list" >
         </activity>
-        <activity android:name=".quiz_cates" >
+        <activity android:name=".categories" >
         </activity>
         <activity android:name=".quiz_itme" >
         </activity>
@@ -32,13 +30,13 @@
         </activity>
         <activity android:name=".about" >
         </activity>
-        <activity android:name=".new_user" >
+        <activity android:name=".add_item" >
         </activity>
         <activity android:name=".panel" >
         </activity>
         <activity android:name=".add_newsign" >
         </activity>
-        <activity android:name=".user_cat" >
+        <activity android:name=".add_category" >
         </activity>
         <activity android:name=".act_list" >
         </activity>

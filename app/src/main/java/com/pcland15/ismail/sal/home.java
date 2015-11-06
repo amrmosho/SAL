@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.pcland15.ismail.sal.libs.dbOperations;
-import com.pcland15.ismail.sal.libs.ui;
 import com.pcland15.ismail.sal.libs.xmlDataModel;
 
 public class home extends AppCompatActivity {
@@ -21,42 +20,59 @@ public class home extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
+
+
+
         TextView  home_name_title= (TextView)findViewById(R.id.home_name_title);
+
+
+
         home_name_title.setText(dbOperations.userData.get("title"));
 
     }
 
-    public void gotoSigns(View view) {
 
 
-        Intent t = new Intent(this, quiz_cates.class);
-        t.putExtra("status", xmlDataModel.signCatTable);
-        startActivity(t);
-
-
-    }
-
-
-
-    public void gotoQuizs(View view) {
-        Intent t = new Intent(this, quiz_cates.class);
-        t.putExtra("status", xmlDataModel.quizCatTable);
-
-        startActivity(t);
-    }
 
     public void gotoAdmin(View view) {
         Intent t = new Intent(this,panel.class);
         startActivity(t);
     }
 
+
+
+
+
     public void goBack(View view) {
         this.finish();
     }
 
+
+
+
+
+
+    public void gotoSigns(View view) {
+
+
+        Intent t = new Intent(this, categories.class);
+        t.putExtra("status", xmlDataModel.signCatTable);
+        startActivity(t);
+
+
+    }
+
+    public void gotoQuizs(View view) {
+        Intent t = new Intent(this, categories.class);
+        t.putExtra("status", xmlDataModel.quizCatTable);
+
+        startActivity(t);
+    }
+
+
     public void gotoBooks(View view) {
 
-        Intent t = new Intent(this, quiz_cates.class);
+        Intent t = new Intent(this, categories.class);
         t.putExtra("status", xmlDataModel.booksCatTable);
         startActivity(t);
 

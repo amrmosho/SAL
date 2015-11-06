@@ -17,7 +17,7 @@ import com.pcland15.ismail.sal.libs.simpleList;
 import java.util.HashMap;
 import java.util.List;
 
-public class new_user extends AppCompatActivity {
+public class add_item extends AppCompatActivity {
     TextView email;
     TextView title;
     TextView password;
@@ -33,7 +33,7 @@ public class new_user extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_user);
+        setContentView(R.layout.add_item);
         status = getIntent().getStringExtra("status");
 
         //<editor-fold desc="getTools">
@@ -69,39 +69,28 @@ public class new_user extends AppCompatActivity {
 
     void setData() {
         titleTxt = this.getString(R.string.newcat_title);
-        if (status.equalsIgnoreCase("quiz")) {
+
+        table = status;
+
+
+        if (status.equalsIgnoreCase(xmlDataModel.quiz_questions)) {
             titleTxt += " " + this.getString(R.string.panel_quiz);
             catTable = xmlDataModel.quizCatTable;
-            table = xmlDataModel.quiz_questions;
-        } else if (status.equalsIgnoreCase("sign")) {
+        } else if (status.equalsIgnoreCase(xmlDataModel.signTable)) {
             titleTxt += " " + this.getString(R.string.sign);
             catTable = xmlDataModel.signCatTable;
-            table = xmlDataModel.signTable;
-
-        } else if (status.equalsIgnoreCase("quiz_q")) {
-            titleTxt += " " + this.getString(R.string.sign);
-            catTable = xmlDataModel.quizCatTable;
-            table = xmlDataModel.quiz_questions;
-
-
-        } else if (status.equalsIgnoreCase("quiz_a")) {
+        } else if (status.equalsIgnoreCase(xmlDataModel.quizAnswersTable)) {
             titleTxt += " " + this.getString(R.string.sign);
             catTable = xmlDataModel.quiz_questions;
-            table = xmlDataModel.quizAnswersTable;
-
-
-
-
-
+        } else if (status.equalsIgnoreCase(xmlDataModel.booksTable)) {
+            titleTxt += " " + this.getString(R.string.books);
+            catTable = xmlDataModel.booksCatTable;
         } else {
             titleTxt += " " + this.getString(R.string.add_user);
             catTable = xmlDataModel.userCatTable;
-            table = xmlDataModel.userTable;
         }
 
     }
-
-
 
 
     //<editor-fold desc="image_bt">

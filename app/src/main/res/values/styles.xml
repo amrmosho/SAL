@@ -61,6 +61,13 @@
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:layout_marginLeft">5dp</item>
 
+        <item name="android:layout_width">match_parent</item>
+
+
+
+
+
+
 
 
 
@@ -146,15 +153,11 @@
     <style name="navbar">
         <item name="android:background">@drawable/nav_bar_bg</item>
         <item name="android:layout_height">40dp</item>
-
-
-
         <item name="android:layout_marginLeft">0dp</item>
         <item name="android:layout_marginTop">0dp</item>
-
+        <item name="android:layout_marginBottom">0dp</item>
 
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginBottom">0dp</item>
 
 
 
@@ -236,7 +239,6 @@
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>

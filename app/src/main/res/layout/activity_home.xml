@@ -11,11 +11,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
         style="@style/navbar"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
         android:id="@+id/navbar">
         <Button
             android:layout_width="wrap_content"
@@ -26,10 +22,8 @@
             android:onClick="goBack"
             />
 
-
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/home"
             android:id="@+id/home_title"
@@ -37,12 +31,10 @@
 
             />
 
-
     </RelativeLayout>
 
 
     <RelativeLayout
-
         android:layout_height="match_parent"
         android:layout_width="match_parent"
        android:layout_below="@+id/navbar"
@@ -53,23 +45,14 @@
     <ImageButton
         android:id="@+id/imageButton"
         style="@style/home_main_bt"
-        android:layout_width="match_parent"
-
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:onClick="gotoSigns"
         android:src="@drawable/home_bt_1"
-
-
         />
 
 
     <ImageButton
         android:id="@+id/imageButton2"
         style="@style/home_main_bt"
-        android:layout_width="match_parent"
-
         android:layout_below="@+id/imageButton"
         android:onClick="gotoBooks"
         android:src="@drawable/books_icon"
@@ -79,10 +62,8 @@
     <ImageButton
         android:id="@+id/imageButton3"
         style="@style/home_main_bt"
-        android:layout_width="match_parent"
         android:layout_below="@+id/imageButton2"
         android:onClick="gotoQuizs"
-
         android:src="@drawable/home_bt_3"
 
 
@@ -92,12 +73,16 @@
     <ImageButton
         android:id="@+id/imageButton4"
         style="@style/home_main_bt"
-        android:layout_width="match_parent"
         android:layout_below="@+id/imageButton3"
         android:onClick="gotoAdmin"
         android:src="@drawable/home_bt_4"
 
         />
+
+
+
+
+
 
     <ImageView
         android:layout_width="wrap_content"

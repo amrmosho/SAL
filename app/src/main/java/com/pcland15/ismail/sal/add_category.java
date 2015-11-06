@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 
-public class user_cat extends AppCompatActivity {
+public class add_category extends AppCompatActivity {
     String status = "";
 
     String title = "";

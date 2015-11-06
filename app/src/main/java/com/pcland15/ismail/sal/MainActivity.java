@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void goto_new_user(View view) {
-        Intent t = new Intent(this, new_user.class);
+        Intent t = new Intent(this, add_item.class);
         t.putExtra("status", "user");
         startActivity(t);
     }

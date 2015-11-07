@@ -1,5 +1,6 @@
 package com.pcland15.ismail.sal.libs;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -11,6 +12,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
@@ -87,8 +90,13 @@ public class ui {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (options[item].equals(context.getString(R.string.ChoosefromGallery))) {
+
+
+
                     Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     activity.startActivityForResult(intent, 2);
+
+
 
                 } else if (options[item].equals(context.getString(R.string.cancel))) {
                     dialog.dismiss();
@@ -131,6 +139,10 @@ public class ui {
 
 
             Uri selectedImage = data.getData();
+
+
+
+
             path = getRealPathFromURI(activity, selectedImage);
             InputStream imageStream = null;
 
@@ -148,11 +160,36 @@ public class ui {
     }
 
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     public String getRealPathFromURI(Context context, Uri contentUri) {
         Cursor cursor = null;
         try {
             String[] proj = {MediaStore.Images.Media.DATA};
-            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+
+
+
+            String wholeID = DocumentsContract.getDocumentId(contentUri);
+
+            // Split at colon, use second item in the array
+            String id = wholeID.split(":")[1];
+
+            String[] column = { MediaStore.Images.Media.DATA };
+
+            // where id is equal to
+            String sel = MediaStore.Images.Media._ID + "=?";
+
+             cursor =context.getContentResolver().
+                    query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                            column, sel, new String[]{ id }, null);
+
+
+
+
+
+
+         //   cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+
+
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
             return cursor.getString(column_index);

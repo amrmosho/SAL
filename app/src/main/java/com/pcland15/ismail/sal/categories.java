@@ -40,6 +40,8 @@ public class categories extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
+
         table = getIntent().getStringExtra("status");
 
 
@@ -59,8 +61,14 @@ public class categories extends AppCompatActivity {
 
 
         if (table.equalsIgnoreCase(xmlDataModel.signCatTable)) {
+
+
             categoriesTtile.setText(this.getString(R.string.sign_categories));
+
+
             categoriesImage.setImageDrawable(this.getDrawable(R.drawable.sign_categries));
+
+
         } else if (table.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
             categoriesTtile.setText(this.getString(R.string.books_categories));
             categoriesImage.setImageDrawable(this.getDrawable(R.drawable.books_cats));
@@ -108,29 +116,45 @@ public class categories extends AppCompatActivity {
         HashMap<String, HashMap<String, String>> data = db.commit();
 
 
+        GridView l = (GridView) findViewById(R.id.quiz_cat_List);
+
+
         final List<cat_list> mydata = new ArrayList<>();
 
         for (String k : data.keySet()) {
+
+
             if (!k.equalsIgnoreCase("log")) {
+
+
                 cat_list c = new cat_list();
+
+
                 c.setTitle(data.get(k).get("title"));
-                c.setImage(data.get(k).get("image"));
                 c.setImage(data.get(k).get("image"));
                 c.setID(data.get(k).get("id"));
                 mydata.add(c);
+
+
             }
 
         }
 
-        final Context o = this;
 
-        GridView l = (GridView) findViewById(R.id.quiz_cat_List);
         adapter = new listArrayAdapte(this, 0, mydata);
+
+
         l.setAdapter(adapter);
+
+
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
                 viewItemsList(mydata.get(position).getID());
+
+
             }
         });
     }
@@ -141,15 +165,22 @@ public class categories extends AppCompatActivity {
         Intent t = null;
 
 
+
+
+
         if (table.equalsIgnoreCase(xmlDataModel.signCatTable)) {
             t = new Intent(this, sign_items_list.class);
+            //t.putExtra("status", xmlDataModel.booksCatTable);
 
-            t.putExtra("status", xmlDataModel.signTable);
+
         } else if (table.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
-            t = new Intent(this, sign_items_list.class);
-            t.putExtra("status", xmlDataModel.booksTable);
+            t = new Intent(this, books.class);
+
+          //  t.putExtra("status", xmlDataModel.booksTable);
 
         } else {
+
+
             t = new Intent(this, quiz_itme.class);
         }
 

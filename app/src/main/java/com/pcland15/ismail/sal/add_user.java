@@ -17,7 +17,7 @@ import com.pcland15.ismail.sal.libs.simpleList;
 import java.util.HashMap;
 import java.util.List;
 
-public class add_item extends AppCompatActivity {
+public class add_user extends AppCompatActivity {
     TextView email;
     TextView title;
     TextView password;
@@ -33,7 +33,10 @@ public class add_item extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_item);
+        setContentView(R.layout.add_user);
+
+
+
         status = getIntent().getStringExtra("status");
 
         //<editor-fold desc="getTools">

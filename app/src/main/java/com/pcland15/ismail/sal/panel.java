@@ -24,26 +24,26 @@ public class panel extends AppCompatActivity {
 
 
     public void goto_sign(View view) {
-        Intent t = new Intent(this, add_item.class);
+        Intent t = new Intent(this, add_newitem.class);
         t.putExtra("status", xmlDataModel.signTable);
         startActivity(t);
     }
 
     public void goto_quiz_Q(View view) {
-        Intent t = new Intent(this, add_item.class);
+        Intent t = new Intent(this, add_newitem.class);
         t.putExtra("status", xmlDataModel.quiz_questions);
         startActivity(t);
     }
 
     public void goto_quiz_A(View view) {
-        Intent t = new Intent(this, add_item.class);
+        Intent t = new Intent(this, add_newitem.class);
         t.putExtra("status", xmlDataModel.quizAnswersTable);
         startActivity(t);
     }
 
 
     public void goto_user(View view) {
-        Intent t = new Intent(this, add_item.class);
+        Intent t = new Intent(this, add_newitem.class);
         t.putExtra("status", xmlDataModel.userTable);
         startActivity(t);
     }
@@ -52,7 +52,7 @@ public class panel extends AppCompatActivity {
 
     public void goto_book(View view) {
 
-        Intent t = new Intent(this, add_item.class);
+        Intent t = new Intent(this, add_newitem.class);
         t.putExtra("status", xmlDataModel.booksTable);
         startActivity(t);
 

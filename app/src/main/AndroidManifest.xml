@@ -30,11 +30,11 @@
         </activity>
         <activity android:name=".about" >
         </activity>
-        <activity android:name=".add_item" >
+        <activity android:name=".add_user" >
         </activity>
         <activity android:name=".panel" >
         </activity>
-        <activity android:name=".add_newsign" >
+        <activity android:name=".add_newitem" >
         </activity>
         <activity android:name=".add_category" >
         </activity>

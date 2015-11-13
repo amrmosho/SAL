@@ -48,12 +48,19 @@ public class ui {
 
 
         try {
+
+
             String sname = name;
+
+
             int pos = name.lastIndexOf(".");
+
             if (pos > 0) {
                 sname = name.substring(0, pos);
             }
+
             int myi = context.getResources().getIdentifier(sname, "drawable", context.getPackageName());
+
             i.setImageResource(myi);
 
         } catch (Exception e) {
@@ -63,10 +70,20 @@ public class ui {
 
 
                 InputStream is = (InputStream) new URL(config.imagePath + name).getContent();
+
                 Drawable d = Drawable.createFromStream(is, "src name");
+
+
                 i.setImageDrawable(d);
+
                 i.setPadding(1, 1, 1, 1);
+
+
                 i.setBackgroundColor(0xFF00FF00);
+
+
+
+
             } catch (Exception x) {
             }
         }

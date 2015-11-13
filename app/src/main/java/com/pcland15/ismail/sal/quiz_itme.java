@@ -33,7 +33,12 @@ public class quiz_itme extends AppCompatActivity {
     String ansid = "";
     ListView list;
     String catID = "";
+
     String position = "0";
+
+
+
+
     HashMap<String, HashMap<String, String>> allData;
 
     @Override
@@ -50,6 +55,19 @@ public class quiz_itme extends AppCompatActivity {
         title = (TextView) findViewById(R.id.quiz_q_title);
         img = (ImageView) findViewById(R.id.quiz_q_image);
         list = (ListView) findViewById(R.id.quiz_list);
+
+
+
+
+
+
+
+
+
+
+
+
+
         imgStatus = (ImageView) findViewById(R.id.quiz_status_image);
         wrongAnsNumber = (TextView) findViewById(R.id.wrong_ans_number);
         rightAnsNumber = (TextView) findViewById(R.id.right_ans_number);
@@ -61,9 +79,18 @@ public class quiz_itme extends AppCompatActivity {
         quizAnsP = (TextView) findViewById(R.id.quiz_ans_p);
 
 
+
+
+
+
+
         dbOperations db = new dbOperations("quiz_questions", "get_data");
         db.where = "cat_id=" + this.catID;
         allData = db.commit();
+
+
+
+
         getData();
 
     }
@@ -81,12 +108,24 @@ public class quiz_itme extends AppCompatActivity {
             HashMap<String, String> data;
             data = allData.get(this.position);
 
+
+
+
             title.setText(data.get("question"));
             ui.loadImage(this, img, data.get("image"));
+
+
             ansid = data.get("answer");
+
+
+
+
+
 
             dbOperations db = new dbOperations("answers", "get_data");
             db.where = "q_id=" + data.get("id");
+
+
             final HashMap<String, HashMap<String, String>> ansData = db.commit();
 
 
@@ -106,6 +145,8 @@ public class quiz_itme extends AppCompatActivity {
                 quizArrayAdapte
                         adapter;
                 adapter = new quizArrayAdapte(this, 0, mydata);
+
+
                 list.setAdapter(adapter);
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -121,6 +162,9 @@ public class quiz_itme extends AppCompatActivity {
             float all = this.rightAns + this.wrongAns;
 
             float allp = (this.rightAns/all) * 100;
+
+
+
 
             if (allp >= 50) {
                 imgResStatus.setImageResource(R.drawable.thumb_up);
@@ -147,6 +191,9 @@ public class quiz_itme extends AppCompatActivity {
 
 
     public void goNext(String id) {
+
+
+
         if (id.equalsIgnoreCase(this.ansid)) {
             imgStatus.setImageResource(R.drawable.right);
             rightAns++;
@@ -159,9 +206,19 @@ public class quiz_itme extends AppCompatActivity {
         }
 
 
+
+
+
         this.position = "" + (Integer.parseInt(this.position) + 1);
 
+
+
+
         imgStatus.setVisibility(View.VISIBLE);
+
+
+
+
 
         Handler myHandler = new Handler();
         myHandler.postDelayed(mMyRunnable, 1000);

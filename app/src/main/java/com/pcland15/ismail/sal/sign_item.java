@@ -14,6 +14,7 @@ import android.widget.VideoView;
 import com.pcland15.ismail.sal.libs.config;
 import com.pcland15.ismail.sal.libs.dbOperations;
 import com.pcland15.ismail.sal.libs.ui;
+import com.pcland15.ismail.sal.libs.xmlDataModel;
 
 import java.util.HashMap;
 
@@ -37,60 +38,79 @@ public class sign_item extends AppCompatActivity {
 
 
         TabHost tabHost = (TabHost) findViewById(R.id.mytabhost);
+
+
         tabHost.setup();
 
         TabHost.TabSpec tabimage = tabHost.newTabSpec("Image");
         tabimage.setContent(R.id.tab_image);
-
         tabimage.setIndicator(getString(R.string.image));
-
-
 
         TabHost.TabSpec tabvido = tabHost.newTabSpec("Video");
         tabvido.setContent(R.id.tab_vido);
         tabvido.setIndicator(getString(R.string.video));
+
+
         tabHost.addTab(tabvido);
         tabHost.addTab(tabimage);
 
 
-
-       getData();
+        getData();
 
     }
 
 
     void getData() {
 
-        dbOperations db = new dbOperations("sign", "get_data");
+        dbOperations db = new dbOperations(xmlDataModel.signTable, "get_data");
+
+
         db.where = "id=" + this.myID;
+
+
         HashMap<String, HashMap<String, String>> allData = db.commit();
 
 
         HashMap<String, String> data = allData.get("0");
 
+
         ImageView i = (ImageView) findViewById(R.id.sign_item_image);
+
+
         ui.loadImage(this, i, data.get("image"));
+
 
         TextView t = (TextView) findViewById(R.id.sign_item_title);
         t.setText(data.get("name"));
 
 
         String vidAddress = config.vidoePath + data.get("video"); //"https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
+
         Uri vidUri = Uri.parse(vidAddress);
+
+
+
+
         VideoView v = (VideoView) findViewById(R.id.sign_item_vido);
 
         v.setVideoURI(vidUri);
 
-        MediaController mediaController = new
-                MediaController(this);
+
+        MediaController mediaController = new MediaController(this);
+
         mediaController.setAnchorView(v);
         v.setMediaController(mediaController);
-v.start();
+
+
+        v.start();
+
+
         TextView d = (TextView) findViewById(R.id.sign_item_des);
         d.setText(data.get("desc"));
 
 
     }
+
     public void goBack(View view) {
 
         this.finish();

@@ -61,14 +61,12 @@
 
             <WebView
                 android:id="@+id/webview"
-                style="@style/textarea"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/bookTitle"
                 android:layout_marginTop="5dp"
-                android:text="Medium Text"
 
                 />
         </RelativeLayout>

@@ -45,9 +45,20 @@ public class sign_items_list extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
 
         }
+
+
+
+
+
         catID = getIntent().getStringExtra("id");
-        table = getIntent().getStringExtra("status");
+
+        cattable = getIntent().getStringExtra("status");
+
+
+
         steData();
+
+
         getData();
         serach();
     }
@@ -58,8 +69,9 @@ public class sign_items_list extends AppCompatActivity {
     String cattable = "";
     void steData() {
         itemTtile = (TextView) findViewById(R.id.item_title);
-        if (table.equalsIgnoreCase(xmlDataModel.booksTable)) {
-            cattable = xmlDataModel.booksCatTable;
+        if (cattable.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
+
+            table = xmlDataModel.booksTable;
             itemTtile.setText(this.getString(R.string.books));
         } else {
             itemTtile.setText(this.getString(R.string.signs));
@@ -107,24 +119,36 @@ public class sign_items_list extends AppCompatActivity {
 
 
         TextView t = (TextView) findViewById(R.id.sign_items_title);
-
-
         dbOperations catdb = new dbOperations(cattable, "get_data");
         catdb.where = "id=" + this.catID;
         HashMap<String, String> catdata = catdb.commit().get("0");
         t.setText(catdata.get("title"));
 
 
+
+
+
+
+
+
         dbOperations db = new dbOperations(table, "get_data");
         db.where = "cat_id=" + this.catID;
+
+
+
         HashMap<String, HashMap<String, String>> data = db.commit();
 
 
         if (data.size() > 0) {
+
+
+
             final List<cat_list> mydata = new ArrayList<>();
 
             for (String k : data.keySet()) {
                 if (!k.equalsIgnoreCase("log")) {
+
+
                     cat_list c = new cat_list();
                     c.setTitle(data.get(k).get("name"));
                     c.setImage(data.get(k).get("image"));
@@ -137,8 +161,16 @@ public class sign_items_list extends AppCompatActivity {
             adapter = new ItemslistArrayAdapte(this, 0, mydata);
 
 
+
+
+
             ListView l = (ListView) findViewById(R.id.sign_items_List);
+
+
+
             l.setAdapter(adapter);
+
+
             l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -30,14 +30,24 @@ public class books extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
 
         }
+
+
         w = (WebView) findViewById(R.id.webview);
         t = (TextView) findViewById(R.id.bookTitle);
+
+
+
         myID = getIntent().getStringExtra("id");
+
 
 
         w.getSettings().setJavaScriptEnabled(true);
         w.getSettings().setPluginState(WebSettings.PluginState.ON);
+
+
         w.setWebViewClient(new Callback());
+
+
         openFile();
 
     }
@@ -47,11 +57,26 @@ public class books extends AppCompatActivity {
     void openFile() {
 
         dbOperations db = new dbOperations(xmlDataModel.booksTable, "get_data");
+
+
         db.where = "id=" + this.myID;
+
+
+
+
         HashMap<String, HashMap<String, String>> allData = db.commit();
+
         HashMap<String, String> data = allData.get("0");
+
+
         t.setText(data.get("name"));
+
+
+
         String pdfURL = config.imagePath + data.get("file");
+
+
+
         w.loadUrl("http://docs.google.com/gview?embedded=true&url=" + pdfURL);
 
 

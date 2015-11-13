@@ -83,18 +83,19 @@ public class categories extends AppCompatActivity {
     void serach() {
         final EditText editsearch = (EditText) findViewById(R.id.quiz_catserchin);
 
-        final Context o = this;
-
-        // Capture Text in EditText
         editsearch.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void afterTextChanged(Editable arg0) {
                 String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
-                //adapter.filter(text);
+
+
+
                 adapter.getFilter().filter(text);
 
-                Toast.makeText(o, text, Toast.LENGTH_SHORT).show();
+
+
+                Toast.makeText(categories.this, text, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -165,26 +166,20 @@ public class categories extends AppCompatActivity {
         Intent t = null;
 
 
-
-
-
         if (table.equalsIgnoreCase(xmlDataModel.signCatTable)) {
             t = new Intent(this, sign_items_list.class);
-            //t.putExtra("status", xmlDataModel.booksCatTable);
-
 
         } else if (table.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
-            t = new Intent(this, books.class);
+            t = new Intent(this, sign_items_list.class);
 
-          //  t.putExtra("status", xmlDataModel.booksTable);
 
         } else {
-
 
             t = new Intent(this, quiz_itme.class);
         }
 
 
+        t.putExtra("status", table);
         t.putExtra("id", id);
         startActivity(t);
 

@@ -36,7 +36,6 @@ import java.util.Iterator;
 public class dbOperations {
 
 
-
     public String table = "";
     public String type = "";
     public String where = "";
@@ -83,8 +82,9 @@ public class dbOperations {
 
                     File f = new File(this.addImageData.get(k));
 
-
-                    entity.addPart(k, new FileBody(f));
+                    if ( f.exists()) {
+                        entity.addPart(k, new FileBody(f));
+                    }
 
                 }
 

@@ -1,8 +1,10 @@
 package com.pcland15.ismail.sal;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -36,6 +38,11 @@ public class add_newitem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newitem);
 
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+        }
 
         status = getIntent().getStringExtra("status");
         setData();
@@ -97,7 +104,10 @@ public class add_newitem extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        o.addImageData.put("image", u.getImage(resultCode, (ImageView) findViewById(R.id.newitem_ButtonImageView), data));
+        String path = u.getImage(resultCode, (ImageView) findViewById(R.id.newitem_ButtonImageView), data);
+
+        Log.d("signTest",path);
+        o.addImageData.put("image", path);
 
     }
 
@@ -107,7 +117,6 @@ public class add_newitem extends AppCompatActivity {
 
 
     public void select_file(View view) {
-
 
 
     }
@@ -120,9 +129,12 @@ public class add_newitem extends AppCompatActivity {
     }
 
 
-
-
     public void sendItem(View view) {
+
+
+    }
+
+    public void mySendItem(View view) {
 
         if (title.getText().toString().equalsIgnoreCase("")) {
             title.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -147,5 +159,7 @@ public class add_newitem extends AppCompatActivity {
             Toast t = Toast.makeText(this, "Error", Toast.LENGTH_LONG);
             t.show();
         }
+
+
     }
 }

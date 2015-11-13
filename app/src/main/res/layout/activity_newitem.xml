@@ -151,7 +151,7 @@
                 android:contentDescription="@string/desc"
                 android:text="@string/send"
 
-                android:onClick="sendItem"/>
+                android:onClick="mySendItem"/>
 
 
         </LinearLayout>

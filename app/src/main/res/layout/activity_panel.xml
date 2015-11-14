@@ -90,7 +90,6 @@
             android:hint="@string/panel_sign"
             android:id="@+id/button9"
             android:layout_gravity="center_horizontal"
-
             android:onClick="goto_sign"
 
 

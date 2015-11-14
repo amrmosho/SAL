@@ -110,6 +110,7 @@
                     style="@style/navbar_title"
                     android:layout_width="match_parent"
                     android:text="..."
+                    android:id="@+id/filePath"
                     android:textAlignment="center" />
             </LinearLayout>
 

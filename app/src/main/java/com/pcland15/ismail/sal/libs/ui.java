@@ -179,6 +179,34 @@ public class ui {
     }
 
 
+
+    public String getImage(int resultCode, TextView viewImage, Intent data) {
+        Bitmap yourSelectedImage = null;
+        String path = "";
+        if (resultCode == activity.RESULT_OK) {
+
+
+            Uri selectedImage = data.getData();
+
+
+
+
+            path = getPathFromURI(activity, selectedImage);
+            InputStream imageStream = null;
+
+            //  path= getRealPathFromURI(activity,data.getData());
+            try {
+                imageStream = activity.getContentResolver().openInputStream(selectedImage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+            viewImage.setText(path);
+        }
+
+        return path;
+    }
+
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public String getRealPathFromURI(Context context, Uri contentUri) {
         Cursor cursor = null;

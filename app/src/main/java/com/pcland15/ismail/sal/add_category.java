@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.pcland15.ismail.sal.libs.dbOperations;
 import com.pcland15.ismail.sal.libs.ui;
+import com.pcland15.ismail.sal.libs.xmlDataModel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -67,31 +68,29 @@ public class add_category extends AppCompatActivity {
         o = new dbOperations(table, "insert");
 
 
-
-
     }
 
 
     void steData() {
         title = this.getString(R.string.newcat_title);
-        if (status.equalsIgnoreCase("quiz")) {
-            title += " " + this.getString(R.string.panel_quiz);
-            table = "quiz_categries";
-        } else if (status.equalsIgnoreCase("sign")) {
-            title += " " + this.getString(R.string.sign);
-            table = "sign_categries";
+        table =status;
+
+        if (status.equalsIgnoreCase(xmlDataModel.quizCatTable)) {
+            title += " " + this.getString(R.string.for_quizs);
+        } else if (status.equalsIgnoreCase(xmlDataModel.signCatTable)) {
+            title += " " + this.getString(R.string.for_sins);
+        } else if (status.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
+            title += " " + this.getString(R.string.for_books);
         } else {
-            title += " " + this.getString(R.string.add_user);
-            table = "studentes_groups";
+            title += " " + this.getString(R.string.for_users);
         }
 
     }
 
 
 
-
     public String getRealPathFromURI(Uri contentUri) {
-        String[] proj = { MediaStore.Images.Media.DATA };
+        String[] proj = {MediaStore.Images.Media.DATA};
         Cursor cursor = managedQuery(contentUri, proj, null, null, null);
         int column_index
                 = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
@@ -116,7 +115,7 @@ public class add_category extends AppCompatActivity {
     public void goList(View view) {
         Intent t = new Intent(this, act_list.class);
 
-        t.putExtra("status",this.status);
+        t.putExtra("status", this.status);
         startActivity(t);
     }
 

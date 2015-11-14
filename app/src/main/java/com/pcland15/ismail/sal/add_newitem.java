@@ -101,23 +101,39 @@ public class add_newitem extends AppCompatActivity {
 
 
     //<editor-fold desc="image_bt">
+    String  fileStatus="image";
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String path = u.getImage(resultCode, (ImageView) findViewById(R.id.newitem_ButtonImageView), data);
+        String path ="";
+        if (fileStatus=="image"){
+             path = u.getImage(resultCode, (ImageView) findViewById(R.id.newitem_ButtonImageView), data);
+        }else{
+             path = u.getImage(resultCode, (TextView) findViewById(R.id.filePath), data);
 
-        Log.d("signTest",path);
+        }
         o.addImageData.put("image", path);
 
     }
-
     public void select_itemimage(View view) {
+
+
+        fileStatus="image";
+
         u.getImage(this);
     }
 
 
     public void select_file(View view) {
 
+    if (status.equalsIgnoreCase(xmlDataModel.booksTable)) {
+        fileStatus = "file";
+
+    }else{
+        fileStatus = "video";
+
+    }
+        u.getImage(this);
 
     }
 
@@ -146,7 +162,7 @@ public class add_newitem extends AppCompatActivity {
             title.setTextColor(getResources().getColor(R.color.textColorPrimary));
         }
 
-        o.addData.put("title", title.getText().toString());
+        o.addData.put("name", title.getText().toString());
         o.addData.put("des", desc.getText().toString());
 
         HashMap<String, HashMap<String, String>> a = o.commit();

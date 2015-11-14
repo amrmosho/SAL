@@ -83,6 +83,10 @@
     <string name="cancel">ألغاء</string>
     <string name="AddPhoto">أضافه صورة</string>
     <string name="books">الكتب</string>
+    <string name="for_users">للاعضاء</string>
+    <string name="for_books">للكتب</string>
+    <string name="for_quizs">للاختبارات</string>
+    <string name="for_sins">للاشارات</string>
 
 
 </resources>

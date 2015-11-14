@@ -67,7 +67,7 @@
 
 
             <LinearLayout
-                android:id="@+id/imagearea"
+                android:id="@+id/imageareaLayout"
 
                 style="@style/textarea"
                 android:layout_width="match_parent"
@@ -94,6 +94,7 @@
 
 
             <LinearLayout
+                android:id="@+id/fileLayout"
 
                 style="@style/textarea"
                 android:layout_width="match_parent"

@@ -47,6 +47,8 @@ public class dbOperations {
     public dbOperations(String table, String type) {
         this.table = table;
         this.type = type;
+
+
         this.addData = new HashMap<>();
         this.addImageData = new HashMap<>();
 

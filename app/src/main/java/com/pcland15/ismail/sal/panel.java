@@ -66,6 +66,8 @@ public class panel extends AppCompatActivity {
         startActivity(t);
     }
 
+
+
     public void goto_mysignCats(View view) {
 
         Intent t = new Intent(this, add_category.class);
@@ -87,6 +89,11 @@ public class panel extends AppCompatActivity {
         t.putExtra("status",xmlDataModel.booksCatTable);
         startActivity(t);
     }
+
+
+
+
+
 
 
     public void goback(View view) {

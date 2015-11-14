@@ -87,6 +87,8 @@
     <string name="for_books">للكتب</string>
     <string name="for_quizs">للاختبارات</string>
     <string name="for_sins">للاشارات</string>
+    <string name="answer">الاجابه</string>
+    <string name="question">السوال</string>
 
 
 </resources>

@@ -84,8 +84,6 @@ public class ui {
                 i.setBackgroundColor(0xFF00FF00);
 
 
-
-
             } catch (Exception x) {
             }
         }
@@ -101,28 +99,15 @@ public class ui {
 
     public void getImage(final Context context) {
 
-        final CharSequence[] options = {context.getString(R.string.ChoosefromGallery), context.getString(R.string.cancel)};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(context.getString(R.string.AddPhoto));
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                if (options[item].equals(context.getString(R.string.ChoosefromGallery))) {
+        Intent intent = new Intent(
+                Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
 
-
-                    Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    activity.startActivityForResult(intent, 2);
+        activity.startActivityForResult(intent, 2);
 
 
-
-                } else if (options[item].equals(context.getString(R.string.cancel))) {
-                    dialog.dismiss();
-                }
-            }
-        });
-        builder.show();
     }
 
 
@@ -151,6 +136,32 @@ public class ui {
 
     }
 
+
+    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table, String textView) {
+
+
+        final List<simpleList> mydata = new ArrayList<>();
+
+        dbOperations db = new dbOperations(table, "get_data");
+        HashMap<String, HashMap<String, String>> data = db.commit();
+        for (String k : data.keySet()) {
+            if (!k.equalsIgnoreCase("log")) {
+                simpleList l = new simpleList();
+                l.setText(data.get(k).get(textView));
+                l.setValue(data.get(k).get("id"));
+
+                mydata.add(l);
+            }
+
+        }
+        spinnerAdapter dataAdapter = new spinnerAdapter(activity, 0, mydata);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        newuser_sp_cat.setAdapter(dataAdapter);
+
+        return mydata;
+
+    }
+
     public String getImage(int resultCode, ImageView viewImage, Intent data) {
         Bitmap yourSelectedImage = null;
         String path = "";
@@ -160,23 +171,30 @@ public class ui {
             Uri selectedImage = data.getData();
 
 
-
-
             path = getPathFromURI(activity, selectedImage);
+
+
+
             InputStream imageStream = null;
 
-            //  path= getRealPathFromURI(activity,data.getData());
             try {
                 imageStream = activity.getContentResolver().openInputStream(selectedImage);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
             yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+
+
             viewImage.setImageBitmap(yourSelectedImage);
         }
 
         return path;
     }
+
+
+
+
+
 
 
 
@@ -187,8 +205,6 @@ public class ui {
 
 
             Uri selectedImage = data.getData();
-
-
 
 
             path = getPathFromURI(activity, selectedImage);
@@ -207,6 +223,10 @@ public class ui {
         return path;
     }
 
+
+
+   /*
+
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public String getRealPathFromURI(Context context, Uri contentUri) {
         Cursor cursor = null;
@@ -214,27 +234,22 @@ public class ui {
             String[] proj = {MediaStore.Images.Media.DATA};
 
 
-
             String wholeID = DocumentsContract.getDocumentId(contentUri);
 
             // Split at colon, use second item in the array
             String id = wholeID.split(":")[1];
 
-            String[] column = { MediaStore.Images.Media.DATA };
+            String[] column = {MediaStore.Images.Media.DATA};
 
             // where id is equal to
             String sel = MediaStore.Images.Media._ID + "=?";
 
-             cursor =context.getContentResolver().
+            cursor = context.getContentResolver().
                     query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                            column, sel, new String[]{ id }, null);
+                            column, sel, new String[]{id}, null);
 
 
-
-
-
-
-         //   cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+            //   cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
 
 
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
@@ -246,16 +261,7 @@ public class ui {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
+*/
 
     public static String getPathFromURI(final Context context, final Uri uri) {
 
@@ -297,7 +303,7 @@ public class ui {
                 }
 
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[] {
+                final String[] selectionArgs = new String[]{
                         split[1]
                 };
 
@@ -315,10 +321,6 @@ public class ui {
 
         return null;
     }
-
-
-
-
 
 
     public static String getDataColumn(Context context, Uri uri, String selection,
@@ -343,6 +345,8 @@ public class ui {
         }
         return null;
     }
+
+
 
     public static boolean isExternalStorageDocument(Uri uri) {
         return "com.android.externalstorage.documents".equals(uri.getAuthority());

@@ -53,16 +53,18 @@ public class add_category extends AppCompatActivity {
 
         }
 
+
+
         status = getIntent().getStringExtra("status");
+
+
         titletxt = (TextView) findViewById(R.id.cat_title);
         viewImage = (ImageView) findViewById(R.id.imageView5);
-
-
         cat_navbar_title = (TextView) findViewById(R.id.cat_navbar_title);
 
         steData();
 
-        cat_navbar_title.setText(title);
+
 
 
         o = new dbOperations(table, "insert");
@@ -84,6 +86,7 @@ public class add_category extends AppCompatActivity {
         } else {
             title += " " + this.getString(R.string.for_users);
         }
+        cat_navbar_title.setText(title);
 
     }
 
@@ -98,6 +101,9 @@ public class add_category extends AppCompatActivity {
         return cursor.getString(column_index);
     }
 
+
+
+
     ui u = new ui(this);
 
     @Override
@@ -107,22 +113,39 @@ public class add_category extends AppCompatActivity {
 
     }
 
+
+
+
     public void select_image(View view) {
         u.getImage(this);
     }
 
 
+
+
+
+
+
+
+
     public void goList(View view) {
         Intent t = new Intent(this, act_list.class);
-
         t.putExtra("status", this.status);
         startActivity(t);
     }
 
+
+
+
+
+
+
+
+
     public void send_data(View view) {
         o.addData.put("title", titletxt.getText().toString());
-
         HashMap<String, HashMap<String, String>> a = o.commit();
+
         if (a.get("log").get("opstauts").equalsIgnoreCase("true")) {
             Toast t = Toast.makeText(this, "Done", Toast.LENGTH_LONG);
             t.show();

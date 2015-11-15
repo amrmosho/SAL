@@ -75,7 +75,7 @@ public class sign_items_list extends AppCompatActivity {
             itemTtile.setText(this.getString(R.string.books));
         } else {
             itemTtile.setText(this.getString(R.string.signs));
-            cattable = xmlDataModel.signCatTable;
+            table = xmlDataModel.signTable;
 
         }
 

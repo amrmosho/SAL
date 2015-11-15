@@ -56,106 +56,124 @@
 
         >
 
-
-        <LinearLayout
-            android:id="@+id/insert_bts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/navbar"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical">
-
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/imageareaLayout"
-
-                style="@style/textarea"
+                android:id="@+id/insert_bts"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/navbar"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    style="@style/image_button"
+                <LinearLayout
+                    android:id="@+id/imageareaLayout"
+
+                    style="@style/textarea"
                     android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:orientation="vertical">
 
 
-                    android:onClick="select_itemimage" />
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        style="@style/image_button"
+                        android:layout_width="match_parent"
 
-                <ImageView
-                    android:id="@+id/newitem_ButtonImageView"
+
+                        android:onClick="select_itemimage" />
+
+                    <ImageView
+                        android:id="@+id/newitem_ButtonImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/no_image" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/fileLayout"
+
+                    style="@style/textarea"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/no_image"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
+                    android:orientation="vertical">
 
 
-            <LinearLayout
-                android:id="@+id/fileLayout"
+                    <ImageButton
+                        style="@style/video_button"
+                        android:layout_width="match_parent"
+                        android:onClick="select_file" />
 
-                style="@style/textarea"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/filePath"
+                        style="@style/navbar_title"
+                        android:layout_width="match_parent"
+                        android:text="..."
+                        android:textAlignment="center" />
+                </LinearLayout>
 
 
-                <ImageButton
-                    style="@style/video_button"
+                <LinearLayout
+                    style="@style/textarea"
                     android:layout_width="match_parent"
-                    android:onClick="select_file" />
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    style="@style/navbar_title"
-                    android:layout_width="match_parent"
-                    android:text="..."
-                    android:id="@+id/filePath"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/newitem_name_input"
+                        style="@style/form_input_text"
+                        android:hint="@string/newsign_name" />
 
 
-            <LinearLayout
-                style="@style/textarea"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/newitem_desc_input"
+                        style="@style/form_input_text"
+                        android:hint="@string/newsign_desc" />
 
-                <EditText
-                    android:id="@+id/newitem_name_input"
-                    style="@style/form_input_text"
-                    android:hint="@string/newsign_name" />
+                </LinearLayout>
 
                 <Spinner
                     android:id="@+id/newitem_cats"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:hint="@string/newsign_cat"
-                    android:layout_gravity="center_horizontal" />
 
-                <EditText
-                    android:id="@+id/newitem_desc_input"
-                    style="@style/form_input_text"
-                    android:hint="@string/newsign_desc" />
+                    style="@style/Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/newsign_cat"
+
+                    />
+
+                <Spinner
+                    android:id="@+id/newitem_subspinner"
+                    style="@style/Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/newitem_cats"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:hint="@string/newsign_cat"
+
+                    android:visibility="gone"
+
+
+                    />
+
+                <Button
+                    android:id="@+id/imageButton4"
+                    style="@style/button"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/desc"
+                    android:onClick="mySendItem"
+
+                    android:text="@string/send" />
+
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/imageButton4"
-                style="@style/button"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/desc"
-                android:text="@string/send"
-
-                android:onClick="mySendItem"/>
-
-
-        </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 </RelativeLayout>

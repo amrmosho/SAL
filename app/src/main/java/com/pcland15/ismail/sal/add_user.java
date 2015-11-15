@@ -53,7 +53,7 @@ public class add_user extends AppCompatActivity {
         //<editor-fold  desc="Spinner">
         ui u = new ui(this);
         Spinner newuser_sp_cat = (Spinner) findViewById(R.id.newuser_sp_cat);
-        final List<simpleList> sdata = u.fillSpinner(newuser_sp_cat, catTable);
+        final List<simpleList> sdata = u.fillSpinner(newuser_sp_cat, catTable,this.getString(R.string.ch_category) );
         newuser_sp_cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

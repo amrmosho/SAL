@@ -30,6 +30,7 @@ public class add_newitem extends AppCompatActivity {
     String titleTxt = "";
     String status;
     String g_id;
+    String ans_id;
     LinearLayout Img_Layout;
     LinearLayout File_Layout;
     dbOperations o = null;
@@ -65,12 +66,9 @@ public class add_newitem extends AppCompatActivity {
 
         List<simpleList> sdata2 = null;
         if (status.equalsIgnoreCase(xmlDataModel.quizAnswersTable)) {
-            sdata2 = u.fillSpinner(newuser_sp_cat, catTable, "question");
-
-
+            sdata2 = u.fillSpinner(newuser_sp_cat, catTable,this.getString(R.string.ch_question), "question");
         } else {
-
-            sdata2 = u.fillSpinner(newuser_sp_cat, catTable);
+            sdata2 = u.fillSpinner(newuser_sp_cat, catTable,this.getString(R.string.ch_category));
 
         }
 
@@ -97,15 +95,46 @@ public class add_newitem extends AppCompatActivity {
 
     void setData() {
         titleTxt = this.getString(R.string.newcat_title);
+        Spinner newitem_subspinner = (Spinner) findViewById(R.id.newitem_subspinner);
+
+
 
         table = status;
         File_Layout.setVisibility(View.VISIBLE);
         Img_Layout.setVisibility(View.VISIBLE);
+        newitem_subspinner.setVisibility(View.GONE);
+
         if (status.equalsIgnoreCase(xmlDataModel.quiz_questions)) {
             titleTxt += " " + this.getString(R.string.panel_quiz);
             catTable = xmlDataModel.quizCatTable;
             title.setHint(R.string.question);
             File_Layout.setVisibility(View.GONE);
+
+
+
+            //<editor-fold  desc="Spinner">
+            ui u = new ui(this);
+            newitem_subspinner.setVisibility(View.VISIBLE);
+
+            List<simpleList> sdata2 = null;
+                sdata2 = u.fillSpinner(newitem_subspinner, xmlDataModel.quizAnswersTable, "description");
+
+            final List<simpleList> sdata = sdata2;
+
+            ans_id = sdata.get(0).getValue();
+            newitem_subspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    ans_id = sdata.get(position).getValue();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+            //</editor-fold>
+
 
         } else if (status.equalsIgnoreCase(xmlDataModel.signTable)) {
             titleTxt += " " + this.getString(R.string.sign);
@@ -201,6 +230,11 @@ public class add_newitem extends AppCompatActivity {
         } else if (status.equalsIgnoreCase(xmlDataModel.quiz_questions)) {
             o.addData.put("question", title.getText().toString());
             o.addData.put("cat_id", g_id);
+            o.addData.put("answer", ans_id);
+
+
+
+
 
         } else {
             o.addData.put("des", desc.getText().toString());

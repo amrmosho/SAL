@@ -111,10 +111,15 @@ public class ui {
     }
 
 
-    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table) {
+    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table ,String title) {
 
 
         final List<simpleList> mydata = new ArrayList<>();
+
+        simpleList f = new simpleList();
+        f.setText(title);
+        f.setValue("-1");
+        mydata.add(f);
 
         dbOperations db = new dbOperations(table, "get_data");
         HashMap<String, HashMap<String, String>> data = db.commit();
@@ -137,13 +142,19 @@ public class ui {
     }
 
 
-    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table, String textView) {
+    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table,String title, String textView) {
 
 
         final List<simpleList> mydata = new ArrayList<>();
 
         dbOperations db = new dbOperations(table, "get_data");
         HashMap<String, HashMap<String, String>> data = db.commit();
+
+        simpleList f = new simpleList();
+        f.setText(title);
+        f.setValue("-1");
+        mydata.add(f);
+
         for (String k : data.keySet()) {
             if (!k.equalsIgnoreCase("log")) {
                 simpleList l = new simpleList();

@@ -10,214 +10,208 @@
     tools:context="com.pcland15.ismail.sal.panel">
 
 
-    <RelativeLayout
-        android:id="@+id/navbar33333"
-
-        style="@style/navbar"
+    <ScrollView
+        android:fillViewport="true"
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp">
-
-
-        <ImageButton
-            android:id="@+id/button4"
-            style="@style/navbar_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="goback"
-            android:text="@string/back" />
-
-        <ImageButton
-            android:id="@+id/button5"
-            style="@style/navbar_send_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:onClick="userRegSend"
-
-            android:text="@string/send" />
-
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/navbar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/newcat_title"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-
-            />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        style="@style/main_data"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/navbar"
-        android:layout_marginTop="50dp">
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/signs"
-            android:id="@+id/textView5"
-
-
-            />
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
 
         <LinearLayout
-            style="@style/textarea"
+            style="@style/main_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-           >
-        <Button
-            style="@style/button"
-            android:hint="@string/panel_cat"
-            android:id="@+id/button10"
-
-            android:onClick="goto_mysignCats"
-            />
-
-        <Button
-            style="@style/button"
-            android:hint="@string/panel_sign"
-            android:id="@+id/button9"
-            android:layout_gravity="center_horizontal"
-            android:onClick="goto_sign"
+            android:layout_below="@+id/navbar"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
 
 
-            />
-        </LinearLayout>
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/signs"
+                android:textAppearance="?android:attr/textAppearanceLarge"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/books"
-
-
-            />
-
-
-        <LinearLayout
-            style="@style/textarea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <Button
-                style="@style/button"
-                android:hint="@string/panel_cat"
-
-                android:onClick="goto_booksCats"
-                />
-
-            <Button
-                style="@style/button"
-                android:hint="@string/add_book"
-                android:layout_gravity="center_horizontal"
-                android:onClick="goto_book"
-                />
-        </LinearLayout>
-
-
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/panel_quiz"
-            android:id="@+id/textView51"
-
-
-            />
-
-        <LinearLayout
-            style="@style/textarea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <Button
-                style="@style/button"
-                android:id="@+id/button13"
-                android:hint="@string/panel_cat"
-
-                android:onClick="goto_quiz_cat"
 
                 />
 
-            <Button
-                style="@style/button"
-                android:hint="@string/addquiz_q"
-                android:id="@+id/button12"
-                android:onClick="goto_quiz_Q"
-                android:layout_gravity="center_horizontal" />
+            <LinearLayout
+                style="@style/textarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <Button
-                style="@style/button"
-                android:hint="@string/addquiz_a"
-                android:id="@+id/button13d"
-                android:onClick="goto_quiz_A"
-                android:layout_gravity="center_horizontal" />
+                <Button
+                    android:id="@+id/button10"
+                    style="@style/button"
+                    android:hint="@string/panel_cat"
 
-        </LinearLayout>
+                    android:onClick="goto_mysignCats" />
 
-
-
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/users"
-            android:id="@+id/textView513"
+                <Button
+                    android:id="@+id/button9"
+                    style="@style/button"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/panel_sign"
+                    android:onClick="goto_sign"
 
 
-            />
+                    />
+            </LinearLayout>
 
-        <LinearLayout
-            style="@style/textarea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/books"
+                android:textAppearance="?android:attr/textAppearanceLarge"
 
-
-
-            >
-            <Button
-                style="@style/button"
-                android:hint="@string/panel_cat"
-                android:id="@+id/button133"
-
-                android:onClick="goto_user_Cats"
 
                 />
 
-            <Button
-                style="@style/button"
-                android:hint="@string/add_user"
-                android:id="@+id/button123"
+            <LinearLayout
+                style="@style/textarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                android:onClick="goto_user"
-                android:layout_gravity="center_horizontal" />
+                <Button
+                    style="@style/button"
+                    android:hint="@string/panel_cat"
 
+                    android:onClick="goto_booksCats" />
+
+                <Button
+                    style="@style/button"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/add_book"
+                    android:onClick="goto_book" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/panel_quiz"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+
+
+                />
+
+            <LinearLayout
+                style="@style/textarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button13"
+                    style="@style/button"
+                    android:hint="@string/panel_cat"
+
+                    android:onClick="goto_quiz_cat"
+
+                    />
+
+                <Button
+                    android:id="@+id/button12"
+                    style="@style/button"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/addquiz_q"
+                    android:onClick="goto_quiz_Q" />
+
+                <Button
+                    android:id="@+id/button13d"
+                    style="@style/button"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/addquiz_a"
+                    android:onClick="goto_quiz_A" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView513"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/users"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+
+
+                />
+
+            <LinearLayout
+                style="@style/textarea"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+
+
+                >
+
+                <Button
+                    android:id="@+id/button133"
+                    style="@style/button"
+                    android:hint="@string/panel_cat"
+
+                    android:onClick="goto_user_Cats"
+
+                    />
+
+                <Button
+                    android:id="@+id/button123"
+                    style="@style/button"
+                    android:layout_gravity="center_horizontal"
+
+                    android:hint="@string/add_user"
+                    android:onClick="goto_user" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
+    </ScrollView>
+        <RelativeLayout
+            android:id="@+id/navbar33333"
+
+            style="@style/navbar"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp">
 
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/button4"
+                style="@style/navbar_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goback"
+                android:text="@string/back" />
+
+            <ImageButton
+                android:id="@+id/button5"
+                style="@style/navbar_send_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:onClick="userRegSend"
+
+                android:text="@string/send" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/navbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newcat_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+
+                />
+
+        </RelativeLayout>
+
+
+
+
 
 </RelativeLayout>

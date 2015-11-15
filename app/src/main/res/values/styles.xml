@@ -99,6 +99,14 @@
 
     </style>
 
+    <style name="Spinner">
+        <item name="android:background">@drawable/button_shape</item>
+        <item name="android:layout_height">50dp</item>
+
+
+    </style>
+
+
 
 
     <style name="form_label" parent="label">
@@ -158,8 +166,9 @@
         <item name="android:layout_marginBottom">0dp</item>
 
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_alignParentTop">true</item>
 
-
+xx
 
 
     </style>

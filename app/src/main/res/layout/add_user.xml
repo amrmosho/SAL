@@ -99,12 +99,7 @@
                     android:hint="@string/name"
                     android:inputType="textPersonName" />
 
-                <Spinner
-                    android:id="@+id/newuser_sp_cat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_gravity="center_horizontal" />
+
 
                 <EditText
                     android:id="@+id/new_uesr_email"
@@ -137,7 +132,13 @@
 
                     />
             </LinearLayout>
+            <Spinner
+                android:id="@+id/newuser_sp_cat"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                style="@style/Spinner"
 
+                android:layout_gravity="center_horizontal" />
             <Button
                 android:id="@+id/button8"
                 style="@style/button"

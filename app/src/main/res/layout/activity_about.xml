@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/about_title"
-            android:id="@+id/home_title"
+            android:id="@+id/about_title"
             style="@style/navbar_title"
 
             />
@@ -46,16 +46,22 @@
         style="@style/main_data"
 
         >
-
+        <ScrollView android:id="@+id/textAreaScroller"
+            android:layout_width="fill_parent"
+            android:layout_height="500dp"
+            android:layout_x="0px"
+            android:layout_y="25px"
+            android:scrollbars="vertical">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/about"
             style="@style/textarea"
+            android:id="@+id/about_data"
 
             />
-
+        </ScrollView>
     </RelativeLayout>
 
 

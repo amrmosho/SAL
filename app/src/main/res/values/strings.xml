@@ -91,6 +91,7 @@
     <string name="question">السوال</string>
     <string name="ch_category">أختر تصنيف</string>
     <string name="ch_question">أختر سؤال</string>
+    <string name="update">تحديث البيانات</string>
 
 
 </resources>

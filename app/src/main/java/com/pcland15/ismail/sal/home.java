@@ -77,4 +77,10 @@ public class home extends AppCompatActivity {
         startActivity(t);
 
     }
+
+    public void gotoUpdate(View view) {
+        Intent t = new Intent(this, about.class);
+        t.putExtra("status", "update");
+        startActivity(t);
+    }
 }

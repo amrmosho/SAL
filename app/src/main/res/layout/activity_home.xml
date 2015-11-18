@@ -74,8 +74,8 @@
         android:id="@+id/imageButton4"
         style="@style/home_main_bt"
         android:layout_below="@+id/imageButton3"
-        android:onClick="gotoAdmin"
-        android:src="@drawable/home_bt_4"
+        android:onClick="gotoUpdate"
+        android:src="@drawable/update_data"
 
         />
 

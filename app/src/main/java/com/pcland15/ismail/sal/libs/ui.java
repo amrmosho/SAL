@@ -51,16 +51,112 @@ public class ui {
     }
 
 
-    public static void PDF(Context context, VideoView v, String name) {
+    public static void updateData(Context context, TextView t) {
 
-       /* String vidAddress = config.vidoePath + data.get("video"); //"https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
 
-        Uri vidUri = Uri.parse(vidAddress);
+        updateData(context, xmlDataModel.signCatTable, t);
+        updateData(context, xmlDataModel.signTable, t);
+        updateData(context, xmlDataModel.signTable, t, "video");
 
-        v.setVideoURI(vidUri);*/
 
+        updateData(context, xmlDataModel.booksCatTable, t);
+        updateData(context, xmlDataModel.booksTable, t);
+        updateData(context, xmlDataModel.booksTable, t, "file");
+
+
+        updateData(context, xmlDataModel.quizCatTable, t);
+        updateData(context, xmlDataModel.quiz_questions, t);
 
     }
+
+
+    public static void updateData(Context context, String table, TextView t) {
+        data da = new data(context);
+
+        String file = "image";
+        String path = config.imagePath;
+
+        t.setText(t.getText() + table + "(" + file + ").....\n----------------------------------\n");
+
+        dbOperations db = new dbOperations(table, "get_data");
+
+        HashMap<String, HashMap<String, String>> data = db.commit();
+
+        if (data.size() > 0) {
+
+            for (String k : data.keySet()) {
+                if (!k.equalsIgnoreCase("log")) {
+                    String f = data.get(k).get(file);
+                    if (!f.trim().equalsIgnoreCase("")) {
+
+
+                        if (!da.hasExternalStoragePrivateFile(f)) {
+                            da.saveToExternalStorage(config.imagePath, f);
+                            t.setText(t.getText() + f + "\n");
+                        }
+
+
+                    }
+
+                }
+            }
+        }
+
+        t.setText(t.getText() + "----------------------------------\n");
+    }
+
+    public static void updateData(Context context, String table, TextView t, String file) {
+
+        data da = new data(context);
+
+        String path = config.imagePath;
+
+        t.setText(t.getText() +table + "(" + file + ").....\n----------------------------------\n");
+
+        dbOperations db = new dbOperations(table, "get_data");
+
+        HashMap<String, HashMap<String, String>> data = db.commit();
+
+        if (data.size() > 0) {
+
+            for (String k : data.keySet()) {
+                if (!k.equalsIgnoreCase("log")) {
+                    String f = data.get(k).get(file);
+                    if (!f.trim().equalsIgnoreCase("")) {
+
+
+                        if (!da.hasExternalStoragePrivateFile(f)) {
+                            da.saveToExternalStorage(config.imagePath, f);
+                            t.setText(t.getText() + f + "\n");
+                        }
+
+
+                    }
+
+                }
+            }
+        }
+
+        t.setText(t.getText() + "----------------------------------\n");
+
+    }
+
+
+
+/*
+    void steData(String re) {
+        itemTtile = (TextView) findViewById(R.id.item_title);
+        if (cattable.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
+
+            table = xmlDataModel.booksTable;
+            itemTtile.setText(this.getString(R.string.books));
+        } else {
+            itemTtile.setText(this.getString(R.string.signs));
+            table = xmlDataModel.signTable;
+
+        }
+
+    }*/
 
 
     public static void loadVideoloadImage(Context context, VideoView v, String name) {

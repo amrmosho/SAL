@@ -46,12 +46,12 @@
         style="@style/main_data"
 
         >
-        <ScrollView android:id="@+id/textAreaScroller"
-            android:layout_width="fill_parent"
-            android:layout_height="500dp"
-            android:layout_x="0px"
-            android:layout_y="25px"
-            android:scrollbars="vertical">
+        <ScrollView
+            android:fillViewport="true"
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

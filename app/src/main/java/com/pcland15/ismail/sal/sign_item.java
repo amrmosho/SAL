@@ -1,5 +1,6 @@
 package com.pcland15.ismail.sal;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -51,9 +52,9 @@ public class sign_item extends AppCompatActivity {
         tabvido.setIndicator(getString(R.string.video));
 
 
-        tabHost.addTab(tabvido);
-        tabHost.addTab(tabimage);
 
+        tabHost.addTab(tabimage);
+        tabHost.addTab(tabvido);
 
         getData();
 
@@ -84,26 +85,16 @@ public class sign_item extends AppCompatActivity {
         t.setText(data.get("name"));
 
 
-        String vidAddress = config.vidoePath + data.get("video"); //"https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
-
-        Uri vidUri = Uri.parse(vidAddress);
-
-
-
-
-        VideoView v = (VideoView) findViewById(R.id.sign_item_vido);
-
-        v.setVideoURI(vidUri);
+        // String vidAddress = config.vidoePath + data.get("video"); //"https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
+        // Uri vidUri = Uri.parse(vidAddress);
+        // VideoView v = (VideoView) findViewById(R.id.sign_item_vido);
+        // v.setVideoURI(vidUri);
+        // MediaController mediaController = new MediaController(this);
+        // mediaController.setAnchorView(v);
+        //v.setMediaController(mediaController);
 
 
-        MediaController mediaController = new MediaController(this);
-
-        mediaController.setAnchorView(v);
-        v.setMediaController(mediaController);
-
-
-        v.start();
-
+        ui.loadVideoloadImage(this, (VideoView) findViewById(R.id.sign_item_vido), data.get("video"));
 
         TextView d = (TextView) findViewById(R.id.sign_item_des);
         d.setText(data.get("desc"));

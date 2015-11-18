@@ -47,11 +47,8 @@ public class dbOperations {
     public dbOperations(String table, String type) {
         this.table = table;
         this.type = type;
-
-
         this.addData = new HashMap<>();
         this.addImageData = new HashMap<>();
-
     }
 
     public HashMap<String, HashMap<String, String>> commit() {
@@ -59,17 +56,11 @@ public class dbOperations {
     }
 
     MultipartEntity geturldata() {
-
         MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-
-
         try {
-
             entity.addPart("set", new StringBody(this.type));
             entity.addPart("where", new StringBody(this.where));
             entity.addPart("table", new StringBody(this.table));
-
-
             if (this.addData != null) {
                 for (String k : this.addData.keySet()) {
                     entity.addPart(k, new StringBody(this.addData.get(k)));
@@ -81,22 +72,15 @@ public class dbOperations {
 
             if (this.addImageData != null) {
                 for (String k : this.addImageData.keySet()) {
-
                     File f = new File(this.addImageData.get(k));
-
                     if ( f.exists()) {
                         entity.addPart(k, new FileBody(f));
                     }
-
                 }
-
             }
 
         } catch (UnsupportedEncodingException e) {
-
-
         } catch (Exception e) {
-
 
         }
         return entity;

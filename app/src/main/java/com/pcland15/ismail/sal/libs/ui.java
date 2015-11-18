@@ -27,6 +27,8 @@ import android.support.v4.content.CursorLoader;
 import com.pcland15.ismail.sal.R;
 
 import android.database.Cursor;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -42,12 +44,41 @@ public class ui {
 
     Activity activity;
 
+    //data da;
     public ui(Activity activity) {
         this.activity = activity;
+
+    }
+
+
+    public static void PDF(Context context, VideoView v, String name) {
+
+       /* String vidAddress = config.vidoePath + data.get("video"); //"https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
+
+        Uri vidUri = Uri.parse(vidAddress);
+
+        v.setVideoURI(vidUri);*/
+
+
+    }
+
+
+    public static void loadVideoloadImage(Context context, VideoView v, String name) {
+
+        if (!name.trim().equalsIgnoreCase("")) {
+            data da = new data(context);
+            if (!da.hasExternalStoragePrivateFile(name)) {
+                da.saveToExternalStorage(config.vidoePath, name);
+            }
+            String externalFilesDir = context.getExternalFilesDir(null).toString();
+            String videoResource = externalFilesDir + "/" + name;
+            v.setVideoPath(videoResource);
+            v.start();
+        }
     }
 
     public static void loadImage(Context context, ImageView i, String name) {
-
+        data da = new data(context);
 
         try {
 
@@ -67,11 +98,27 @@ public class ui {
 
         } catch (Exception e) {
 
-
             try {
+                if (da.getExternalStoragePrivateFile(name) != null) {
+
+                    Bitmap bmp = BitmapFactory.decodeFile(da.getExternalStoragePrivateFile(name)
+                            .getAbsolutePath());
+
+                    i.setImageBitmap(bmp);
+                } else {
+                    Bitmap bmp = BitmapFactory.decodeFile(da.saveToExternalStorage(config.imagePath, name)
+                            .getAbsolutePath());
+                    i.setImageBitmap(bmp);
+
+                    Toast t = Toast.makeText(context, "import image " + name, Toast.LENGTH_LONG);
+
+                    t.show();
+                }
 
 
-                InputStream is = (InputStream) new URL(config.imagePath + name).getContent();
+
+                /*
+                 InputStream is = (InputStream) new URL(config.imagePath + name).getContent();
 
                 Drawable d = Drawable.createFromStream(is, "src name");
 
@@ -82,7 +129,7 @@ public class ui {
 
 
                 i.setBackgroundColor(0xFF00FF00);
-
+                 */
 
             } catch (Exception x) {
             }
@@ -111,7 +158,7 @@ public class ui {
     }
 
 
-    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table ,String title) {
+    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table, String title) {
 
 
         final List<simpleList> mydata = new ArrayList<>();
@@ -142,7 +189,7 @@ public class ui {
     }
 
 
-    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table,String title, String textView) {
+    public List<simpleList> fillSpinner(Spinner newuser_sp_cat, String table, String title, String textView) {
 
 
         final List<simpleList> mydata = new ArrayList<>();
@@ -185,7 +232,6 @@ public class ui {
             path = getPathFromURI(activity, selectedImage);
 
 
-
             InputStream imageStream = null;
 
             try {
@@ -201,12 +247,6 @@ public class ui {
 
         return path;
     }
-
-
-
-
-
-
 
 
     public String getImage(int resultCode, TextView viewImage, Intent data) {
@@ -356,7 +396,6 @@ public class ui {
         }
         return null;
     }
-
 
 
     public static boolean isExternalStorageDocument(Uri uri) {

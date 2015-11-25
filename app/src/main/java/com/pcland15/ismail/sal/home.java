@@ -5,8 +5,7 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import com.pcland15.ismail.sal.libs.dbOperations;
+
 import com.pcland15.ismail.sal.libs.xmlDataModel;
 
 public class home extends AppCompatActivity {
@@ -23,21 +22,17 @@ public class home extends AppCompatActivity {
 
 
 
-        TextView  home_name_title= (TextView)findViewById(R.id.home_name_title);
+       // TextView  home_name_title= (TextView)findViewById(R.id.home_name_title);
 
 
 
-        home_name_title.setText(dbOperations.userData.get("title"));
-
+      //  home_name_title.setText(dbOperations.userData.get("title"));
+//
     }
 
 
 
 
-    public void gotoAdmin(View view) {
-        Intent t = new Intent(this,panel.class);
-        startActivity(t);
-    }
 
 
 
@@ -79,7 +74,7 @@ public class home extends AppCompatActivity {
     }
 
     public void gotoUpdate(View view) {
-        Intent t = new Intent(this, about.class);
+        Intent t = new Intent(this, update.class);
         t.putExtra("status", "update");
         startActivity(t);
     }

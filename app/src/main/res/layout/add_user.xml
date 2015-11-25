@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.pcland15.ismail.sal.add_user">
+    tools:context="com.pcland15.ismail.sal.tmp.add_user">
 
 
     <RelativeLayout
@@ -137,7 +137,6 @@
                 android:layout_width="match_parent"
                 android:textAlignment="center"
                 style="@style/Spinner"
-
                 android:layout_gravity="center_horizontal" />
             <Button
                 android:id="@+id/button8"

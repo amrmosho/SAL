@@ -92,6 +92,8 @@
     <string name="ch_category">أختر تصنيف</string>
     <string name="ch_question">أختر سؤال</string>
     <string name="update">تحديث البيانات</string>
+    <string name="name_1">الاسم الاول</string>
+    <string name="name_2">الاسم الثانى</string>
 
 
 </resources>

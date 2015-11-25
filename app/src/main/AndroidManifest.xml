@@ -16,6 +16,7 @@
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,20 +30,11 @@
         </activity>
         <activity android:name=".home" >
         </activity>
-        <activity android:name=".about" >
-        </activity>
-        <activity android:name=".add_user" >
-        </activity>
-        <activity android:name=".panel" >
-        </activity>
-        <activity android:name=".add_newitem" >
-        </activity>
-        <activity android:name=".add_category" >
-        </activity>
-        <activity android:name=".act_list" >
+        <activity android:name=".update" >
         </activity>
         <activity android:name=".books" >
-
+        </activity>
+        <activity android:name=".aboutapp" >
         </activity>
     </application>
 

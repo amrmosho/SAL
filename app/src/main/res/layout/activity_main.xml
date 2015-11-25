@@ -46,7 +46,6 @@
             android:layout_height="65dp"
             android:orientation="horizontal"
 
-            android:visibility="gone"
             >
 
 
@@ -77,7 +76,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageButton
@@ -94,8 +92,7 @@
                 android:id="@+id/button3"
                 style="@style/homeBT"
                 android:layout_gravity="right"
-                android:onClick="goto_new_user"
-                android:src="@drawable/home_newacount_bt"
+
 
 
                 />
@@ -122,7 +119,7 @@
             android:id="@+id/login_layout"
             android:layout_width="340dp"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="gone">
 
 
             <EditText

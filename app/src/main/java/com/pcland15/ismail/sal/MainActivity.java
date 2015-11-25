@@ -5,6 +5,7 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
 import com.pcland15.ismail.sal.libs.*;
 
 import android.widget.EditText;
@@ -33,15 +34,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
-
-
 
 
         login_layout = (RelativeLayout) findViewById(R.id.login_layout);
@@ -53,16 +49,11 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.login_password);
 
 
-
-
         email.setText("empcland@gmail.com");
         password.setText("3mrmosho");
 
 
-
     }
-
-
 
 
     public void login(View view) {
@@ -88,23 +79,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     public void goto_new_user(View view) {
-        Intent t = new Intent(this, add_user.class);
-        t.putExtra("status", "user");
-        startActivity(t);
+       // Intent t = new Intent(this, add_user.class);
+      //  t.putExtra("status", "user");
+      //  startActivity(t);
     }
 
     public void go_to_about(View view) {
-        Intent t = new Intent(this, about.class);
+        Intent t = new Intent(this, aboutapp.class);
         startActivity(t);
     }
-
-
-
-
 
 
     public void hide_login(View view) {
@@ -115,13 +99,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void show_login(View view) {
+        Intent t = new Intent(this, home.class);
+        startActivity(t);
 
-        home_txt_layout.setVisibility(View.GONE);
+      /*  home_txt_layout.setVisibility(View.GONE);
         home_bar_layout.setVisibility(View.GONE);
-        login_layout.setVisibility(View.VISIBLE);
+        login_layout.setVisibility(View.VISIBLE);*/
 
     }
-
 
 
 }

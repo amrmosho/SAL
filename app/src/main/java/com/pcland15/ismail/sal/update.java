@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.pcland15.ismail.sal.libs.ui;
 
-public class about extends AppCompatActivity {
+public class update extends AppCompatActivity {
     TextView about_data;
 
     @Override
@@ -15,7 +15,7 @@ public class about extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_update);
 
 
         TextView about_title = (TextView) findViewById(R.id.about_title);

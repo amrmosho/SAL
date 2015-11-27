@@ -20,6 +20,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.support.v4.content.CursorLoader;
@@ -111,7 +112,7 @@ public class ui {
 
         String path = config.imagePath;
 
-        t.setText(t.getText() +table + "(" + file + ").....\n----------------------------------\n");
+        t.setText(t.getText() + table + "(" + file + ").....\n----------------------------------\n");
 
         dbOperations db = new dbOperations(table, "get_data");
 
@@ -142,24 +143,13 @@ public class ui {
     }
 
 
-
-/*
-    void steData(String re) {
-        itemTtile = (TextView) findViewById(R.id.item_title);
-        if (cattable.equalsIgnoreCase(xmlDataModel.booksCatTable)) {
-
-            table = xmlDataModel.booksTable;
-            itemTtile.setText(this.getString(R.string.books));
-        } else {
-            itemTtile.setText(this.getString(R.string.signs));
-            table = xmlDataModel.signTable;
-
-        }
-
-    }*/
-
-
     public static void loadVideoloadImage(Context context, VideoView v, String name) {
+
+
+        MediaController mediaController = new MediaController(context);
+        mediaController.setAnchorView(v);
+        v.setMediaController(mediaController);
+
 
         if (!name.trim().equalsIgnoreCase("")) {
             data da = new data(context);
@@ -169,6 +159,8 @@ public class ui {
             String externalFilesDir = context.getExternalFilesDir(null).toString();
             String videoResource = externalFilesDir + "/" + name;
             v.setVideoPath(videoResource);
+
+
             v.start();
         }
     }

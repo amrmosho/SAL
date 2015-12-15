@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         login_layout = (RelativeLayout) findViewById(R.id.login_layout);
         home_bar_layout = (LinearLayout) findViewById(R.id.home_bar_layout);
-        home_txt_layout = (LinearLayout) findViewById(R.id.home_txt_layout);
+        //home_txt_layout = (LinearLayout) findViewById(R.id.home_txt_layout);
 
 
         email = (EditText) findViewById(R.id.login_email);

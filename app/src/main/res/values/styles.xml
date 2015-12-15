@@ -75,6 +75,7 @@
 
     <style name="hometTitle">
         <item name="android:textColor">#052b39</item>
+        <item name="android:layout_marginTop">15dp</item>
 
         <item name="android:textStyle">bold|italic</item>
         <item name="android:fontFamily">sans-serif-black</item>

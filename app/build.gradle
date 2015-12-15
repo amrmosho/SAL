@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile files('libs/httpmime-4.0.1.jar')
     compile files('libs/apache-mime4j-0.6.jar')
+    compile 'com.koushikdutta.ion:ion:2.1.6'
 }

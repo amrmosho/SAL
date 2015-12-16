@@ -11,6 +11,13 @@ public class config {
     http://sign.decorplanner.com/webserves/?set=get_row&table=studentes
     http://192.168.1.5/sign
 
+public static String webServiecURL="http://sign.decorplanner.com/webserves/";
+public static String imagePath="http://sign.decorplanner.com/upload/";
+public static String vidoePath="http://sign.decorplanner.com/upload/";
+
+
+
+
      */
 
 }
